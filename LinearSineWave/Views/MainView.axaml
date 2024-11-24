@@ -1,0 +1,305 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:LinearSineWave.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialIcons="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="LinearSineWave.Views.MainView"
+        x:DataType="vm:MainViewModel"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="LinearSineWave">
+
+    <Design.DataContext>
+        <!-- This only sets the DataContext for the previewer in an IDE,
+             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+        <vm:MainViewModel/>
+    </Design.DataContext>
+
+	<DockPanel LastChildFill="True">
+		<StackPanel DockPanel.Dock="Left" Background="#333333" Orientation="Vertical">
+			<Button
+				BorderThickness="1"
+				BorderBrush="#808080"
+				Margin="10,10,10,0"
+				Padding="0,0,0,0"
+				Foreground="#E6E6E6"
+				VerticalAlignment="Top"
+				ToolTip.Tip="Library Grid"
+				Name="ViewLibraryGrid"
+				Background="#404040">
+				<materialIcons:MaterialIcon Kind="PlaylistMusicOutline" Height="75" Width="75" Foreground="#F1F1F1" />
+				<Button.Styles>
+					<Style Selector="Button:pointerover /template/ ContentPresenter">
+						<Setter Property="Background" Value="#4D4D4D" />
+						<Setter Property="Foreground" Value="#E6E6E6" />
+						<Setter Property="BorderBrush" Value="#808080" />
+					</Style>
+				</Button.Styles>
+			</Button>
+			<Button
+				BorderThickness="1"
+				BorderBrush="#808080"
+				Margin="10,10,10,0"
+				Padding="0,0,0,0"
+				Foreground="#E6E6E6"
+				VerticalAlignment="Top"
+				ToolTip.Tip="Refresh Library From Source"
+				Name="RefreshLibraryWithDatabase"
+				Background="#404040">
+				<materialIcons:MaterialIcon Kind="Refresh" Height="75" Width="75" />
+				<Button.Styles>
+					<Style Selector="Button:pointerover /template/ ContentPresenter">
+						<Setter Property="Background" Value="#4D4D4D" />
+						<Setter Property="Foreground" Value="#E6E6E6" />
+						<Setter Property="BorderBrush" Value="#808080" />
+					</Style>
+				</Button.Styles>
+			</Button>
+			<Button
+				BorderThickness="1"
+				BorderBrush="#808080"
+				Margin="10,10,10,0"
+				Padding="0,0,0,0"
+				Foreground="#E6E6E6"
+				VerticalAlignment="Top"
+				Name="Configuration"
+				ToolTip.Tip="Configuration"
+				Background="#404040">
+				<materialIcons:MaterialIcon Kind="CogOutline" Height="75" Width="75" />
+				<Button.Styles>
+					<Style Selector="Button:pointerover /template/ ContentPresenter">
+						<Setter Property="Background" Value="#4D4D4D" />
+						<Setter Property="Foreground" Value="#E6E6E6" />
+						<Setter Property="BorderBrush" Value="#808080" />
+					</Style>
+				</Button.Styles>
+			</Button>
+		</StackPanel>
+		
+		<Panel DockPanel.Dock="Bottom" Background="#333333">
+		<StackPanel FlowDirection="LeftToRight" Orientation="Horizontal" Margin="10,5,10,0">
+			<Button BorderThickness="1"
+					BorderBrush="#b5c4e3"
+					Margin="5,5,5,5"
+					Padding="0,0,0,0"
+					Foreground="#F1F1F1"
+					HorizontalAlignment="Left"
+					ToolTip.Tip="Previous Track"
+					Name="PreviousTrack">
+				<materialIcons:MaterialIcon Kind="SkipPreviousOutline" Height="32" Width="32" />
+				<Button.Styles>
+					<Style Selector="Button:pointerover /template/ ContentPresenter">
+						<Setter Property="Background" Value="#DAE2F1" />
+						<Setter Property="Foreground" Value="#333333" />
+						<Setter Property="BorderBrush" Value="#577bc1" />
+					</Style>
+				</Button.Styles>
+			</Button>
+			<Button BorderThickness="1"
+					BorderBrush="#b5c4e3"
+					Margin="5,5,5,5"
+					Padding="0,0,0,0"
+					Foreground="#F1F1F1"
+					HorizontalAlignment="Left"
+					Name="RewindTrack"
+					ToolTip.Tip="Hold to Rewind">
+				<materialIcons:MaterialIcon Kind="SkipBackwardOutline" Height="32" Width="32" />
+				<Button.Styles>
+					<Style Selector="Button:pointerover /template/ ContentPresenter">
+						<Setter Property="Background" Value="#DAE2F1" />
+						<Setter Property="Foreground" Value="#333333" />
+						<Setter Property="BorderBrush" Value="#577bc1" />
+					</Style>
+				</Button.Styles>
+			</Button>
+			<Button BorderThickness="1"
+					BorderBrush="#b5c4e3"
+					Margin="5,5,5,5"
+					Padding="0,0,0,0"
+					Foreground="#F1F1F1"
+					HorizontalAlignment="Left"
+					Name="PlayPauseTrack"
+					ToolTip.Tip="Play / Pause">
+				<materialIcons:MaterialIcon Kind="PlayOutline" Height="48" Width="48" />
+				<Button.Styles>
+					<Style Selector="Button:pointerover /template/ ContentPresenter">
+						<Setter Property="Background" Value="#DAE2F1" />
+						<Setter Property="Foreground" Value="#333333" />
+						<Setter Property="BorderBrush" Value="#577bc1" />
+					</Style>
+				</Button.Styles>
+			</Button>
+			<Button BorderThickness="1"
+					BorderBrush="#b5c4e3"
+					Margin="5,5,5,5"
+					Padding="0,0,0,0"
+					Foreground="#F1F1F1"
+					HorizontalAlignment="Left"
+					Name="FastForwardTrack"
+					ToolTip.Tip="Hold to Forward">
+				<materialIcons:MaterialIcon Kind="SkipForwardOutline" Height="32" Width="32" />
+				<Button.Styles>
+					<Style Selector="Button:pointerover /template/ ContentPresenter">
+						<Setter Property="Background" Value="#DAE2F1" />
+						<Setter Property="Foreground" Value="#333333" />
+						<Setter Property="BorderBrush" Value="#577bc1" />
+					</Style>
+				</Button.Styles>
+			</Button>
+			<Button BorderThickness="1"
+					BorderBrush="#b5c4e3"
+					Margin="5,5,5,5"
+					Padding="0,0,0,0"
+					Foreground="#F1F1F1"
+					HorizontalAlignment="Left"
+					Name="NextTrack"
+					ToolTip.Tip="Next Track">
+				<materialIcons:MaterialIcon Kind="SkipNextOutline" Height="32" Width="32" />
+				<Button.Styles>
+					<Style Selector="Button:pointerover /template/ ContentPresenter">
+						<Setter Property="Background" Value="#DAE2F1" />
+						<Setter Property="Foreground" Value="#333333" />
+						<Setter Property="BorderBrush" Value="#577bc1" />
+					</Style>
+				</Button.Styles>
+			</Button>
+			
+			<Panel HorizontalAlignment="Left" Margin="5,0,10,0">
+				<Label HorizontalAlignment="Center" Content="Volume" Foreground="#F1F1F1" />
+				<Slider Width="100"
+						Margin="0,5,0,0"
+						VerticalAlignment="Center"
+						Minimum="0"
+						Maximum="100"
+						Value="25"
+						Name="VolumeSlider">
+				</Slider>
+			</Panel>
+			
+			<Image Height="48" Width="48"
+				   Stretch="UniformToFill"
+				   Source="/Assets/disc.png"
+				   />
+			
+			<Panel HorizontalAlignment="Left" Margin="10,0,20,0">
+				<Label HorizontalAlignment="Left" Name="TrackProgressLabel" Content="{Binding TrackPositionLabel}" Foreground="#F1F1F1" />
+				<Label HorizontalAlignment="Right" Name="TrackLengthLabel" Content="{Binding TrackLengthLabel}" Foreground="#F1F1F1" />
+				<Slider Width="200"
+						Margin="0,5,0,0"
+						VerticalAlignment="Center"
+						Minimum="-1"
+						Maximum="{Binding TrackLength}"
+						Value="{Binding TrackPosition}"
+						Name="TrackProgressSlider">
+				</Slider>
+			</Panel>
+
+			<StackPanel FlowDirection="LeftToRight" Orientation="Vertical" Margin="0,0,10,0">
+				<TextBlock HorizontalAlignment="Right" Foreground="#F1F1F1">Track:</TextBlock>
+				<TextBlock HorizontalAlignment="Right" Foreground="#F1F1F1">Artist:</TextBlock>
+				<TextBlock HorizontalAlignment="Right" Foreground="#F1F1F1">Album:</TextBlock>
+			</StackPanel>
+			
+			<StackPanel FlowDirection="LeftToRight" Orientation="Vertical">
+				<TextBlock HorizontalAlignment="Left" Foreground="#F1F1F1" Name="TrackNameLabel" Text="{Binding CurrentTrackName}">[track]</TextBlock>
+				<TextBlock HorizontalAlignment="Left" Foreground="#F1F1F1" Name="TrackArtistLabel" Text="{Binding CurrentTrackArtist}">[artist]</TextBlock>
+				<TextBlock HorizontalAlignment="Left" Foreground="#F1F1F1" Name="TrackAlbumLabel" Text="{Binding CurrentTrackAlbum}">[album]</TextBlock>
+			</StackPanel>
+		</StackPanel>
+		</Panel>
+
+
+		<Panel Background="#F1F1F1">
+			<TabControl Name="MainTabControl"
+				SelectedIndex="{Binding MainTabSelectedIndex}"
+                SelectionChanged="MainTabChangeHandler">
+				<TabItem Header="Artist / Track" FontSize="16">
+					<StackPanel Orientation="Vertical">
+						<Border BorderThickness="1" BorderBrush="#CCCCCC">
+						<Panel Name="ArtistTrackToolbar" FlowDirection="LeftToRight">
+							<Button
+								BorderThickness="1"
+								BorderBrush="#808080"
+								Margin="5,5,5,5"
+								Padding="0,0,0,0"
+								Foreground="#333333"
+								Background="#EEEEEE"
+								VerticalAlignment="Top"
+								Name="SyncGridWithDatabase"
+								ToolTip.Tip="Sync Grid With Database">
+								<materialIcons:MaterialIcon Kind="Sync" Height="32" Width="32" />
+								<Button.Styles>
+									<Style Selector="Button:pointerover /template/ ContentPresenter">
+										<Setter Property="Background" Value="#DAE2F1" />
+										<Setter Property="Foreground" Value="#333333" />
+										<Setter Property="BorderBrush" Value="#808080" />
+									</Style>
+								</Button.Styles>
+							</Button>
+						</Panel>
+						</Border>
+						<TextBlock Margin="5">This is tab 1 content</TextBlock>
+					</StackPanel>
+				</TabItem>
+				<TabItem Header="Playlist" FontSize="16">
+					<StackPanel Orientation="Vertical">
+						<Border BorderThickness="1" BorderBrush="#CCCCCC">
+							<Panel Name="PlaylistToolbar" FlowDirection="LeftToRight">
+								<Button
+									BorderThickness="1"
+									BorderBrush="#808080"
+									Margin="5,5,5,5"
+									Padding="0,0,0,0"
+									Foreground="#333333"
+									Background="#EEEEEE"
+									VerticalAlignment="Top"
+									Name="TestA"
+									ToolTip.Tip="Sync Grid With Database">
+									<materialIcons:MaterialIcon Kind="Sync" Height="32" Width="32" />
+									<Button.Styles>
+										<Style Selector="Button:pointerover /template/ ContentPresenter">
+											<Setter Property="Background" Value="#DAE2F1" />
+											<Setter Property="Foreground" Value="#333333" />
+											<Setter Property="BorderBrush" Value="#808080" />
+										</Style>
+									</Button.Styles>
+								</Button>
+							</Panel>
+						</Border>
+						<TextBlock Margin="5">This is tab 2 content</TextBlock>
+					</StackPanel>
+				</TabItem>
+				<TabItem Header="Current Queue" FontSize="16">
+					<StackPanel Orientation="Vertical">
+						<Border BorderThickness="1" BorderBrush="#CCCCCC">
+							<Panel Name="CurrentQueueToolbar" FlowDirection="LeftToRight">
+								<Button
+									BorderThickness="1"
+									BorderBrush="#808080"
+									Margin="5,5,5,5"
+									Padding="0,0,0,0"
+									Foreground="#333333"
+									Background="#EEEEEE"
+									VerticalAlignment="Top"
+									Name="TestB"
+									ToolTip.Tip="Sync Grid With Database">
+									<materialIcons:MaterialIcon Kind="Sync" Height="32" Width="32" />
+									<Button.Styles>
+										<Style Selector="Button:pointerover /template/ ContentPresenter">
+											<Setter Property="Background" Value="#DAE2F1" />
+											<Setter Property="Foreground" Value="#333333" />
+											<Setter Property="BorderBrush" Value="#808080" />
+										</Style>
+									</Button.Styles>
+								</Button>
+							</Panel>
+						</Border>
+						<TextBlock Margin="5">This is tab 3 content</TextBlock>
+					</StackPanel>
+				</TabItem>
+			</TabControl>
+		</Panel>
+	</DockPanel>
+
+</Window>
