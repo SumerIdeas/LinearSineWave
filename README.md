@@ -1,2 +1,2 @@
 # LinearSineWave
-Audio app written in .NET and Avalonia UI
+Audio app written in .NET 9 and Avalonia UI
