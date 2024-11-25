@@ -13,5 +13,6 @@
     <Application.Styles>
         <FluentTheme />
         <materialIcons:MaterialIconStyles />
+        <StyleInclude Source="Styles/AppStyle.axaml"></StyleInclude>
     </Application.Styles>
 </Application>

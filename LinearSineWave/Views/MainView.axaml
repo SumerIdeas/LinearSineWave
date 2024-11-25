@@ -179,8 +179,7 @@
 			
 			<Image Height="48" Width="48"
 				   Stretch="UniformToFill"
-				   Source="/Assets/disc.png"
-				   />
+				   Source="/Assets/Images/Disc.png"/>
 			
 			<Panel HorizontalAlignment="Left" Margin="10,0,20,0">
 				<Label HorizontalAlignment="Left" Name="TrackProgressLabel" Content="{Binding TrackPositionLabel}" Foreground="#F1F1F1" />
@@ -214,7 +213,7 @@
 			<TabControl Name="MainTabControl"
 				SelectedIndex="{Binding MainTabSelectedIndex}"
                 SelectionChanged="MainTabChangeHandler">
-				<TabItem Header="Artist / Track" FontSize="16">
+				<TabItem Header="Artist / Track" FontSize="16" Foreground="#333333">
 					<StackPanel Orientation="Vertical">
 						<Border BorderThickness="1" BorderBrush="#CCCCCC">
 						<Panel Name="ArtistTrackToolbar" FlowDirection="LeftToRight">
@@ -242,7 +241,7 @@
 						<TextBlock Margin="5">This is tab 1 content</TextBlock>
 					</StackPanel>
 				</TabItem>
-				<TabItem Header="Playlist" FontSize="16">
+				<TabItem Header="Playlist" FontSize="16" Foreground="#333333">
 					<StackPanel Orientation="Vertical">
 						<Border BorderThickness="1" BorderBrush="#CCCCCC">
 							<Panel Name="PlaylistToolbar" FlowDirection="LeftToRight">
@@ -270,7 +269,7 @@
 						<TextBlock Margin="5">This is tab 2 content</TextBlock>
 					</StackPanel>
 				</TabItem>
-				<TabItem Header="Current Queue" FontSize="16">
+				<TabItem Header="Current Queue" FontSize="16" Foreground="#333333">
 					<StackPanel Orientation="Vertical">
 						<Border BorderThickness="1" BorderBrush="#CCCCCC">
 							<Panel Name="CurrentQueueToolbar" FlowDirection="LeftToRight">
