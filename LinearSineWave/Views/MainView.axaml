@@ -48,94 +48,44 @@
 		<Panel DockPanel.Dock="Bottom" Background="#333333">
 		<StackPanel FlowDirection="LeftToRight" Orientation="Horizontal" Margin="10,5,10,0">
 			<!--		Previous Track			-->
-			<Button BorderThickness="1"
-			        BorderBrush="#b5c4e3"
-			        Margin="5,5,5,5"
-			        Padding="0,0,0,0"
-			        Foreground="#F1F1F1"
-			        HorizontalAlignment="Left"
-			        ToolTip.Tip="Previous Track"
-			        Name="PreviousTrack">
+			<Button
+				Classes="AudioButtonClass"
+		        HorizontalAlignment="Left"
+		        ToolTip.Tip="Previous Track"
+		        Name="PreviousTrack">
 				<materialIcons:MaterialIcon Kind="SkipPreviousOutline" Height="32" Width="32" />
-				<Button.Styles>
-					<Style Selector="Button:pointerover /template/ ContentPresenter">
-						<Setter Property="Background" Value="#DAE2F1" />
-						<Setter Property="Foreground" Value="#333333" />
-						<Setter Property="BorderBrush" Value="#577bc1" />
-					</Style>
-				</Button.Styles>
 			</Button>
 			<!--		Skip backward			-->
-			<Button BorderThickness="1"
-					BorderBrush="#b5c4e3"
-					Margin="5,5,5,5"
-					Padding="0,0,0,0"
-					Foreground="#F1F1F1"
-					HorizontalAlignment="Left"
-					Name="RewindTrack"
-					ToolTip.Tip="Hold to Rewind">
+			<Button
+				Classes="AudioButtonClass"
+				HorizontalAlignment="Left"
+				Name="RewindTrack"
+				ToolTip.Tip="Hold to Rewind">
 				<materialIcons:MaterialIcon Kind="SkipBackwardOutline" Height="32" Width="32" />
-				<Button.Styles>
-					<Style Selector="Button:pointerover /template/ ContentPresenter">
-						<Setter Property="Background" Value="#DAE2F1" />
-						<Setter Property="Foreground" Value="#333333" />
-						<Setter Property="BorderBrush" Value="#577bc1" />
-					</Style>
-				</Button.Styles>
 			</Button>
 			<!--		Pause Play			-->
-			<Button BorderThickness="1"
-					BorderBrush="#b5c4e3"
-					Margin="5,5,5,5"
-					Padding="0,0,0,0"
-					Foreground="#F1F1F1"
-					HorizontalAlignment="Left"
-					Name="PlayPauseTrack"
-					ToolTip.Tip="Play / Pause">
+			<Button
+				Classes="AudioButtonClass"
+				HorizontalAlignment="Left"
+				Name="PlayPauseTrack"
+				ToolTip.Tip="Play / Pause">
 				<materialIcons:MaterialIcon Kind="PlayOutline" Height="48" Width="48" />
-				<Button.Styles>
-					<Style Selector="Button:pointerover /template/ ContentPresenter">
-						<Setter Property="Background" Value="#DAE2F1" />
-						<Setter Property="Foreground" Value="#333333" />
-						<Setter Property="BorderBrush" Value="#577bc1" />
-					</Style>
-				</Button.Styles>
 			</Button>
 			<!--		Skip Forward			-->
-			<Button BorderThickness="1"
-					BorderBrush="#b5c4e3"
-					Margin="5,5,5,5"
-					Padding="0,0,0,0"
-					Foreground="#F1F1F1"
-					HorizontalAlignment="Left"
-					Name="FastForwardTrack"
-					ToolTip.Tip="Hold to Forward">
+			<Button
+				Classes="AudioButtonClass"
+				HorizontalAlignment="Left"
+				Name="FastForwardTrack"
+				ToolTip.Tip="Hold to Forward">
 				<materialIcons:MaterialIcon Kind="SkipForwardOutline" Height="32" Width="32" />
-				<Button.Styles>
-					<Style Selector="Button:pointerover /template/ ContentPresenter">
-						<Setter Property="Background" Value="#DAE2F1" />
-						<Setter Property="Foreground" Value="#333333" />
-						<Setter Property="BorderBrush" Value="#577bc1" />
-					</Style>
-				</Button.Styles>
 			</Button>
 			<!--		Next Track			-->
-			<Button BorderThickness="1"
-					BorderBrush="#b5c4e3"
-					Margin="5,5,5,5"
-					Padding="0,0,0,0"
-					Foreground="#F1F1F1"
-					HorizontalAlignment="Left"
-					Name="NextTrack"
-					ToolTip.Tip="Next Track">
+			<Button
+				Classes="AudioButtonClass"
+				HorizontalAlignment="Left"
+				Name="NextTrack"
+				ToolTip.Tip="Next Track">
 				<materialIcons:MaterialIcon Kind="SkipNextOutline" Height="32" Width="32" />
-				<Button.Styles>
-					<Style Selector="Button:pointerover /template/ ContentPresenter">
-						<Setter Property="Background" Value="#DAE2F1" />
-						<Setter Property="Foreground" Value="#333333" />
-						<Setter Property="BorderBrush" Value="#577bc1" />
-					</Style>
-				</Button.Styles>
 			</Button>
 			
 			<!--		Volume			-->

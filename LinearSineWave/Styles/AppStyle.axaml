@@ -35,4 +35,18 @@
         <Setter Property="BorderBrush" Value="{DynamicResource MainButtonBorderColorOver}" />
     </Style>
     
+    <Style Selector="Button.AudioButtonClass">
+        <Setter Property="Margin" Value="5,5,5,5"></Setter>
+        <Setter Property="Padding" Value="0,0,0,0"></Setter>
+        <Setter Property="BorderThickness" Value="1"></Setter>
+        <Setter Property="Background" Value="#333333"></Setter>
+        <Setter Property="Foreground" Value="#F1F1F1"></Setter>
+        <Setter Property="BorderBrush" Value="#b5c4e3"></Setter>
+    </Style>
+    <Style Selector="Button.AudioButtonClass:pointerover /template/ ContentPresenter">
+        <Setter Property="Background" Value="#DAE2F1" />
+        <Setter Property="Foreground" Value="#333333" />
+        <Setter Property="BorderBrush" Value="#577bc1" />
+    </Style>
+    
 </Styles>
