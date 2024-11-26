@@ -3,8 +3,22 @@
     <Design.PreviewWith>
         <Border Padding="20">
             <!-- Add Controls for Previewer Here -->
+            <Button>Testing New Font</Button>
         </Border>
     </Design.PreviewWith>
 
-    <!-- Add Styles Here -->
+    <Style Selector="Window">
+        <Setter Property="FontFamily" Value="{DynamicResource SourceSans}" />
+    </Style>
+    
+    <Styles.Resources>
+        <SolidColorBrush x:Key="LeftNavigationBackground">#333333</SolidColorBrush>
+        <SolidColorBrush x:Key="MainButtonBackground">#404040</SolidColorBrush>
+        <SolidColorBrush x:Key="MainButtonForeground">#E6E6E6</SolidColorBrush>
+        <Brush x:Key="MainButtonBorderColor">#808080</Brush>
+        <SolidColorBrush x:Key="MainButtonBackgroundOver">#4D4D4D</SolidColorBrush>
+        <SolidColorBrush x:Key="MainButtonForegroundOver">#E6E6E6</SolidColorBrush>
+        <Brush x:Key="MainButtonBorderColorOver">#808080</Brush>
+
+    </Styles.Resources>
 </Styles>

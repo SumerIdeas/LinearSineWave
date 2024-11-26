@@ -15,4 +15,11 @@
         <materialIcons:MaterialIconStyles />
         <StyleInclude Source="Styles/AppStyle.axaml"></StyleInclude>
     </Application.Styles>
+             
+    <Application.Resources>
+        <FontFamily x:Key="SourceSans">/Assets/Fonts/SourceSans3-Regular.ttf:Source Sans 3</FontFamily>
+        <FontFamily x:Key="SourceSansSemiBold">/Assets/Fonts/SourceSans3-SemiBold.ttf:Source Sans 3</FontFamily>
+        <FontFamily x:Key="SourceSansBold">/Assets/Fonts/SourceSans3-Bold.ttf:Source Sans 3</FontFamily>
+        <FontFamily x:Key="SourceSansMedium">/Assets/Fonts/SourceSans3-Media.ttf:Source Sans 3</FontFamily>
+    </Application.Resources>
 </Application>

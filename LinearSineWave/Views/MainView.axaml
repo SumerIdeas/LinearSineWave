@@ -17,26 +17,28 @@
     </Design.DataContext>
 
 	<DockPanel LastChildFill="True">
-		<StackPanel DockPanel.Dock="Left" Background="#333333" Orientation="Vertical">
-			<Button
+		<StackPanel DockPanel.Dock="Left" Background="{DynamicResource LeftNavigationBackground}" Orientation="Vertical">
+			<!--		Show Library Grid			-->
+			<Button 
 				BorderThickness="1"
-				BorderBrush="#808080"
+				BorderBrush="{DynamicResource MainButtonBorderColor}"
 				Margin="10,10,10,0"
 				Padding="0,0,0,0"
-				Foreground="#E6E6E6"
+				Foreground="{DynamicResource MainButtonForeground}"
 				VerticalAlignment="Top"
 				ToolTip.Tip="Library Grid"
 				Name="ViewLibraryGrid"
-				Background="#404040">
+				Background="{DynamicResource MainButtonBackground}">
 				<materialIcons:MaterialIcon Kind="PlaylistMusicOutline" Height="75" Width="75" Foreground="#F1F1F1" />
 				<Button.Styles>
 					<Style Selector="Button:pointerover /template/ ContentPresenter">
-						<Setter Property="Background" Value="#4D4D4D" />
-						<Setter Property="Foreground" Value="#E6E6E6" />
-						<Setter Property="BorderBrush" Value="#808080" />
+						<Setter Property="Background" Value="{DynamicResource MainButtonBackgroundOver}" />
+						<Setter Property="Foreground" Value="{DynamicResource MainButtonForegroundOver}" />
+						<Setter Property="BorderBrush" Value="{DynamicResource MainButtonBorderColorOver}" />
 					</Style>
 				</Button.Styles>
 			</Button>
+			<!--		Refresh Library From Source			-->
 			<Button
 				BorderThickness="1"
 				BorderBrush="#808080"
@@ -56,6 +58,7 @@
 					</Style>
 				</Button.Styles>
 			</Button>
+			<!--		Configuration			-->
 			<Button
 				BorderThickness="1"
 				BorderBrush="#808080"
@@ -79,14 +82,15 @@
 		
 		<Panel DockPanel.Dock="Bottom" Background="#333333">
 		<StackPanel FlowDirection="LeftToRight" Orientation="Horizontal" Margin="10,5,10,0">
+			<!--		Previous Track			-->
 			<Button BorderThickness="1"
-					BorderBrush="#b5c4e3"
-					Margin="5,5,5,5"
-					Padding="0,0,0,0"
-					Foreground="#F1F1F1"
-					HorizontalAlignment="Left"
-					ToolTip.Tip="Previous Track"
-					Name="PreviousTrack">
+			        BorderBrush="#b5c4e3"
+			        Margin="5,5,5,5"
+			        Padding="0,0,0,0"
+			        Foreground="#F1F1F1"
+			        HorizontalAlignment="Left"
+			        ToolTip.Tip="Previous Track"
+			        Name="PreviousTrack">
 				<materialIcons:MaterialIcon Kind="SkipPreviousOutline" Height="32" Width="32" />
 				<Button.Styles>
 					<Style Selector="Button:pointerover /template/ ContentPresenter">
@@ -96,6 +100,7 @@
 					</Style>
 				</Button.Styles>
 			</Button>
+			<!--		Skip backward			-->
 			<Button BorderThickness="1"
 					BorderBrush="#b5c4e3"
 					Margin="5,5,5,5"
@@ -113,6 +118,7 @@
 					</Style>
 				</Button.Styles>
 			</Button>
+			<!--		Pause Play			-->
 			<Button BorderThickness="1"
 					BorderBrush="#b5c4e3"
 					Margin="5,5,5,5"
@@ -130,6 +136,7 @@
 					</Style>
 				</Button.Styles>
 			</Button>
+			<!--		Skip Forward			-->
 			<Button BorderThickness="1"
 					BorderBrush="#b5c4e3"
 					Margin="5,5,5,5"
@@ -147,6 +154,7 @@
 					</Style>
 				</Button.Styles>
 			</Button>
+			<!--		Next Track			-->
 			<Button BorderThickness="1"
 					BorderBrush="#b5c4e3"
 					Margin="5,5,5,5"
@@ -165,6 +173,7 @@
 				</Button.Styles>
 			</Button>
 			
+			<!--		Volume			-->
 			<Panel HorizontalAlignment="Left" Margin="5,0,10,0">
 				<Label HorizontalAlignment="Center" Content="Volume" Foreground="#F1F1F1" />
 				<Slider Width="100"
@@ -177,10 +186,12 @@
 				</Slider>
 			</Panel>
 			
+			<!--		Album Art			-->
 			<Image Height="48" Width="48"
 				   Stretch="UniformToFill"
 				   Source="/Assets/Images/Disc.png"/>
 			
+			<!--		Track Progress			-->
 			<Panel HorizontalAlignment="Left" Margin="10,0,20,0">
 				<Label HorizontalAlignment="Left" Name="TrackProgressLabel" Content="{Binding TrackPositionLabel}" Foreground="#F1F1F1" />
 				<Label HorizontalAlignment="Right" Name="TrackLengthLabel" Content="{Binding TrackLengthLabel}" Foreground="#F1F1F1" />
@@ -194,6 +205,7 @@
 				</Slider>
 			</Panel>
 
+			<!--		Track Info Label			-->
 			<StackPanel FlowDirection="LeftToRight" Orientation="Vertical" Margin="0,0,10,0">
 				<TextBlock HorizontalAlignment="Right" Foreground="#F1F1F1">Track:</TextBlock>
 				<TextBlock HorizontalAlignment="Right" Foreground="#F1F1F1">Artist:</TextBlock>
