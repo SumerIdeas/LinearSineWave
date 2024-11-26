@@ -20,63 +20,28 @@
 		<StackPanel DockPanel.Dock="Left" Background="{DynamicResource LeftNavigationBackground}" Orientation="Vertical">
 			<!--		Show Library Grid			-->
 			<Button 
-				BorderThickness="1"
-				BorderBrush="{DynamicResource MainButtonBorderColor}"
-				Margin="10,10,10,0"
-				Padding="0,0,0,0"
-				Foreground="{DynamicResource MainButtonForeground}"
+				Classes="MainButtonClass"
 				VerticalAlignment="Top"
 				ToolTip.Tip="Library Grid"
-				Name="ViewLibraryGrid"
-				Background="{DynamicResource MainButtonBackground}">
+				Name="ViewLibraryGrid">
 				<materialIcons:MaterialIcon Kind="PlaylistMusicOutline" Height="75" Width="75" Foreground="#F1F1F1" />
-				<Button.Styles>
-					<Style Selector="Button:pointerover /template/ ContentPresenter">
-						<Setter Property="Background" Value="{DynamicResource MainButtonBackgroundOver}" />
-						<Setter Property="Foreground" Value="{DynamicResource MainButtonForegroundOver}" />
-						<Setter Property="BorderBrush" Value="{DynamicResource MainButtonBorderColorOver}" />
-					</Style>
-				</Button.Styles>
 			</Button>
+
 			<!--		Refresh Library From Source			-->
-			<Button
-				BorderThickness="1"
-				BorderBrush="#808080"
-				Margin="10,10,10,0"
-				Padding="0,0,0,0"
-				Foreground="#E6E6E6"
+			<Button 
+				Classes="MainButtonClass"
 				VerticalAlignment="Top"
 				ToolTip.Tip="Refresh Library From Source"
-				Name="RefreshLibraryWithDatabase"
-				Background="#404040">
-				<materialIcons:MaterialIcon Kind="Refresh" Height="75" Width="75" />
-				<Button.Styles>
-					<Style Selector="Button:pointerover /template/ ContentPresenter">
-						<Setter Property="Background" Value="#4D4D4D" />
-						<Setter Property="Foreground" Value="#E6E6E6" />
-						<Setter Property="BorderBrush" Value="#808080" />
-					</Style>
-				</Button.Styles>
+				Name="RefreshLibraryWithDatabase">
+				<materialIcons:MaterialIcon Kind="Refresh" Height="75" Width="75" Foreground="#F1F1F1" />
 			</Button>
 			<!--		Configuration			-->
-			<Button
-				BorderThickness="1"
-				BorderBrush="#808080"
-				Margin="10,10,10,0"
-				Padding="0,0,0,0"
-				Foreground="#E6E6E6"
+			<Button 
+				Classes="MainButtonClass"
 				VerticalAlignment="Top"
-				Name="Configuration"
 				ToolTip.Tip="Configuration"
-				Background="#404040">
-				<materialIcons:MaterialIcon Kind="CogOutline" Height="75" Width="75" />
-				<Button.Styles>
-					<Style Selector="Button:pointerover /template/ ContentPresenter">
-						<Setter Property="Background" Value="#4D4D4D" />
-						<Setter Property="Foreground" Value="#E6E6E6" />
-						<Setter Property="BorderBrush" Value="#808080" />
-					</Style>
-				</Button.Styles>
+				Name="Configuration">
+				<materialIcons:MaterialIcon Kind="CogOutline" Height="75" Width="75" Foreground="#F1F1F1" />
 			</Button>
 		</StackPanel>
 		

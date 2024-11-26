@@ -19,6 +19,20 @@
         <SolidColorBrush x:Key="MainButtonBackgroundOver">#4D4D4D</SolidColorBrush>
         <SolidColorBrush x:Key="MainButtonForegroundOver">#E6E6E6</SolidColorBrush>
         <Brush x:Key="MainButtonBorderColorOver">#808080</Brush>
-
     </Styles.Resources>
+    
+    <Style Selector="Button.MainButtonClass">
+        <Setter Property="Margin" Value="10,10,10,0"></Setter>
+        <Setter Property="Padding" Value="0,0,0,0"></Setter>
+        <Setter Property="BorderThickness" Value="1"></Setter>
+        <Setter Property="Background" Value="{DynamicResource MainButtonBackground}"></Setter>
+        <Setter Property="Foreground" Value="{DynamicResource MainButtonForeground}"></Setter>
+        <Setter Property="BorderBrush" Value="{DynamicResource MainButtonBorderColor}"></Setter>
+    </Style>
+    <Style Selector="Button.MainButtonClass:pointerover /template/ ContentPresenter">
+        <Setter Property="Background" Value="{DynamicResource MainButtonBackgroundOver}" />
+        <Setter Property="Foreground" Value="{DynamicResource MainButtonForegroundOver}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource MainButtonBorderColorOver}" />
+    </Style>
+    
 </Styles>
