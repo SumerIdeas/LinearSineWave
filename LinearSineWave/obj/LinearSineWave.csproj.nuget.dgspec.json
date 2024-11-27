@@ -47,19 +47,23 @@
           "dependencies": {
             "Avalonia": {
               "target": "Package",
-              "version": "[11.2.1, )"
+              "version": "[11.2.2, )"
+            },
+            "Avalonia.Controls.DataGrid": {
+              "target": "Package",
+              "version": "[11.2.2, )"
             },
             "Avalonia.Desktop": {
               "target": "Package",
-              "version": "[11.2.1, )"
+              "version": "[11.2.2, )"
             },
             "Avalonia.Diagnostics": {
               "target": "Package",
-              "version": "[11.2.1, )"
+              "version": "[11.2.2, )"
             },
             "Avalonia.Fonts.Inter": {
               "target": "Package",
-              "version": "[11.2.1, )"
+              "version": "[11.2.2, )"
             },
             "Avalonia.Svg.Skia": {
               "target": "Package",
@@ -67,7 +71,7 @@
             },
             "Avalonia.Themes.Fluent": {
               "target": "Package",
-              "version": "[11.2.1, )"
+              "version": "[11.2.2, )"
             },
             "CommunityToolkit.Mvvm": {
               "target": "Package",
@@ -76,6 +80,10 @@
             "LibVLCSharp": {
               "target": "Package",
               "version": "[3.9.1, )"
+            },
+            "LiteDB": {
+              "target": "Package",
+              "version": "[5.0.21, )"
             },
             "Material.Icons.Avalonia": {
               "target": "Package",

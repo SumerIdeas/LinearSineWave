@@ -145,27 +145,15 @@
 						<Border BorderThickness="1" BorderBrush="#CCCCCC">
 						<Panel Name="ArtistTrackToolbar" FlowDirection="LeftToRight">
 							<Button
-								BorderThickness="1"
-								BorderBrush="#808080"
-								Margin="5,5,5,5"
-								Padding="0,0,0,0"
-								Foreground="#333333"
-								Background="#EEEEEE"
+								Classes="ToolbarButtonClass"
 								VerticalAlignment="Top"
 								Name="SyncGridWithDatabase"
 								ToolTip.Tip="Sync Grid With Database">
 								<materialIcons:MaterialIcon Kind="Sync" Height="32" Width="32" />
-								<Button.Styles>
-									<Style Selector="Button:pointerover /template/ ContentPresenter">
-										<Setter Property="Background" Value="#DAE2F1" />
-										<Setter Property="Foreground" Value="#333333" />
-										<Setter Property="BorderBrush" Value="#808080" />
-									</Style>
-								</Button.Styles>
 							</Button>
 						</Panel>
 						</Border>
-						<TextBlock Margin="5">This is tab 1 content</TextBlock>
+						<TextBlock Margin="5" Foreground="Blue">This is tab 1 content</TextBlock>
 					</StackPanel>
 				</TabItem>
 				<TabItem Header="Playlist" FontSize="16" Foreground="#333333">
