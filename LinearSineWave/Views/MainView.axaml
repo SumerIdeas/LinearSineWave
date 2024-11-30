@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:materialIcons="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+        xmlns:views="clr-namespace:LinearSineWave.Views"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="LinearSineWave.Views.MainView"
         x:DataType="vm:MainViewModel"
@@ -26,7 +27,6 @@
 				Name="ViewLibraryGrid">
 				<materialIcons:MaterialIcon Kind="PlaylistMusicOutline" Height="75" Width="75" Foreground="#F1F1F1" />
 			</Button>
-
 			<!--		Refresh Library From Source			-->
 			<Button 
 				Classes="MainButtonClass"
@@ -137,58 +137,9 @@
 
 
 		<Panel Background="#F1F1F1">
-			<TabControl Name="MainTabControl"
-				SelectedIndex="{Binding MainTabSelectedIndex}"
-                SelectionChanged="MainTabChangeHandler">
-				<TabItem Header="Artist / Track" FontSize="16" Foreground="#333333">
-					<StackPanel Orientation="Vertical">
-						<Border BorderThickness="1" BorderBrush="#CCCCCC">
-						<Panel Name="ArtistTrackToolbar" FlowDirection="LeftToRight">
-							<Button
-								Classes="ToolbarButtonClass"
-								VerticalAlignment="Top"
-								Name="SyncGridWithDatabase"
-								ToolTip.Tip="Sync Grid With Database">
-								<materialIcons:MaterialIcon Kind="Sync" Height="32" Width="32" />
-							</Button>
-						</Panel>
-						</Border>
-						<TextBlock Margin="5" Foreground="#333333">This is tab 1 content</TextBlock>
-					</StackPanel>
-				</TabItem>
-				<TabItem Header="Playlist" FontSize="16" Foreground="#333333">
-					<StackPanel Orientation="Vertical">
-						<Border BorderThickness="1" BorderBrush="#CCCCCC">
-							<Panel Name="PlaylistToolbar" FlowDirection="LeftToRight">
-								<Button
-									Classes="ToolbarButtonClass"
-									VerticalAlignment="Top"
-									Name="TestA"
-									ToolTip.Tip="Sync Grid With Database">
-									<materialIcons:MaterialIcon Kind="Sync" Height="32" Width="32" />
-								</Button>
-							</Panel>
-						</Border>
-						<TextBlock Margin="5">This is tab 2 content</TextBlock>
-					</StackPanel>
-				</TabItem>
-				<TabItem Header="Current Queue" FontSize="16" Foreground="#333333">
-					<StackPanel Orientation="Vertical">
-						<Border BorderThickness="1" BorderBrush="#CCCCCC">
-							<Panel Name="CurrentQueueToolbar" FlowDirection="LeftToRight">
-								<Button
-									Classes="ToolbarButtonClass"
-									VerticalAlignment="Top"
-									Name="TestB"
-									ToolTip.Tip="Sync Grid With Database">
-									<materialIcons:MaterialIcon Kind="Sync" Height="32" Width="32" />
-								</Button>
-							</Panel>
-						</Border>
-						<TextBlock Margin="5">This is tab 3 content</TextBlock>
-					</StackPanel>
-				</TabItem>
-			</TabControl>
+		<!-- Main View Page Area -->
+		<views:ArtistTrackView></views:ArtistTrackView>
+		<!-- ********************* -->
 		</Panel>
 	</DockPanel>
 

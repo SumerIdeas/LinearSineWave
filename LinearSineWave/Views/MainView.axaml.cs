@@ -9,10 +9,5 @@ public partial class MainView : Window
         InitializeComponent();
     }
     
-    public void MainTabChangeHandler(object sender, SelectionChangedEventArgs args)
-    {
-        string tst = string.Empty;
-        TabControl tc = (TabControl)sender;
-        int se = tc.SelectedIndex;
-    }
+
 }
