@@ -26,4 +26,11 @@
         <PackageReference Include="LiteDB" Version="5.0.21" />
         <PackageReference Include="Material.Icons.Avalonia" Version="2.1.10" />
     </ItemGroup>
+
+    <ItemGroup>
+      <Compile Update="Views\ConfigurationView.axaml.cs">
+        <DependentUpon>ConfigurationView.axaml</DependentUpon>
+        <SubType>Code</SubType>
+      </Compile>
+    </ItemGroup>
 </Project>

@@ -18,35 +18,43 @@
     </Design.DataContext>
 
 	<DockPanel LastChildFill="True">
-		<StackPanel DockPanel.Dock="Left" Background="{DynamicResource LeftNavigationBackground}" Orientation="Vertical">
-			<!--		Show Library Grid			-->
-			<Button 
-				Classes="MainButtonClass"
-				VerticalAlignment="Top"
-				ToolTip.Tip="Library Grid"
-				Name="ViewLibraryGrid">
-				<materialIcons:MaterialIcon Kind="PlaylistMusicOutline" Height="75" Width="75" Foreground="#F1F1F1" />
-			</Button>
-			<!--		Refresh Library From Source			-->
-			<Button 
-				Classes="MainButtonClass"
-				VerticalAlignment="Top"
-				ToolTip.Tip="Refresh Library From Source"
-				Name="RefreshLibraryWithDatabase">
-				<materialIcons:MaterialIcon Kind="Refresh" Height="75" Width="75" Foreground="#F1F1F1" />
-			</Button>
-			<!--		Configuration			-->
-			<Button 
-				Classes="MainButtonClass"
-				VerticalAlignment="Top"
-				ToolTip.Tip="Configuration"
-				Name="Configuration">
-				<materialIcons:MaterialIcon Kind="CogOutline" Height="75" Width="75" Foreground="#F1F1F1" />
-			</Button>
-		</StackPanel>
+		<Panel DockPanel.Dock="Left" Background="{DynamicResource LeftNavigationBackground}">
+			<Grid RowDefinitions="Auto, Auto, *" ColumnDefinitions="Auto">
+				<Button 
+					Grid.Row="0"
+					Grid.Column="0"
+					Classes="MainButtonClass"
+					ToolTip.Tip="Library Grid"
+					Name="ViewLibraryGrid"
+					Click="LeftNavbarClickHandler">
+					<materialIcons:MaterialIcon Kind="PlaylistMusicOutline" Height="50" Width="50" Foreground="#F1F1F1" />
+				</Button>
+				<Button 
+					Grid.Row="1"
+					Grid.Column="0"
+					Classes="MainButtonClass"
+					ToolTip.Tip="Refresh Library From Source"
+					Name="RefreshLibraryWithDatabase"
+					Click="LeftNavbarClickHandler">
+					<materialIcons:MaterialIcon Kind="Refresh" Height="50" Width="50" Foreground="#F1F1F1" />
+				</Button>
+				<Button 
+					Grid.Row="2"
+					Grid.Column="0"
+					Classes="MainButtonClass"
+					VerticalAlignment="Bottom"
+					HorizontalAlignment="Center"
+					ToolTip.Tip="Configuration"
+					Name="Configuration"
+					Margin="0,0,0,70"
+					Click="LeftNavbarClickHandler">
+					<materialIcons:MaterialIcon Kind="CogOutline" Height="50" Width="50" Foreground="#F1F1F1" />
+				</Button>
+			</Grid>
+		</Panel>
 		
 		<Panel DockPanel.Dock="Bottom" Background="#333333">
-		<StackPanel FlowDirection="LeftToRight" Orientation="Horizontal" Margin="10,5,10,0">
+		<StackPanel Name="AudioControlPanel" FlowDirection="LeftToRight" Orientation="Horizontal" Margin="10,5,10,0">
 			<!--		Previous Track			-->
 			<Button
 				Classes="AudioButtonClass"
@@ -137,9 +145,9 @@
 
 
 		<Panel Background="#F1F1F1">
-		<!-- Main View Page Area -->
-		<views:ArtistTrackView></views:ArtistTrackView>
-		<!-- ********************* -->
+			<!-- Main View Page Area -->
+			<ContentControl Content="{Binding CurrentPage}"></ContentControl>
+			<!-- ********************* -->
 		</Panel>
 	</DockPanel>
 

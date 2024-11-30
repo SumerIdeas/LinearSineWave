@@ -5,6 +5,18 @@ namespace LinearSineWave.ViewModels;
 
 public partial class MainViewModel : ViewModelBase
 {
+    [ObservableProperty]
+    private ViewModelBase _currentPage;
+    
+    private readonly ArtistTrackViewModel _artistTrackPage = new();
+    private readonly ConfigurationViewModel _configurationPage = new();
+
+    public MainViewModel()
+    {
+        CurrentPage = _artistTrackPage;
+    }
+    
+    
     public string? CurrentTrackName { get; set; }
     public string? CurrentTrackAlbum { get; set; }
     public string? CurrentTrackArtist { get; set; }
