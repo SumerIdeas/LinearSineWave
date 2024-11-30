@@ -1,14 +1,27 @@
 using System;
+using System.ComponentModel.DataAnnotations;
+using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace LinearSineWave.Models;
 
-public class TrackModel
+#pragma warning disable CS8618
+public class TrackModel : ObservableValidator
 {
+    [Required]
     public long TrackIdx { get; set; }
+    
+    [Required]
     public long TrackKey { get; set; }
-    public string LibraryGuid { get; set; } = String.Empty;
-    public string TrackTitle { get; set; } = String.Empty;
-    public string TrackArtist { get; set; } = String.Empty;
+    
+    [Required]
+    public string LibraryGuid { get; set; }
+    
+    [Required]
+    public string TrackTitle { get; set; }
+    
+    [Required]
+    public string TrackArtist { get; set; }
+    
     public string TrackAlbum { get; set; } = String.Empty;
     public string? TrackYear { get; set; }
     public int TrackNumber { get; set; } = 0;

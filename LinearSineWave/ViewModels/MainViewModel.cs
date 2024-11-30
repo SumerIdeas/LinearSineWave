@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Xml.XPath;
 using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 
 namespace LinearSineWave.ViewModels;
 
@@ -31,5 +33,18 @@ public partial class MainViewModel : ViewModelBase
     public string TrackLengthLabel
     {
         get => TrackLength.ToString("00.00");
+    }
+
+
+    [RelayCommand]
+    private void NavigateToArtistTrackPage()
+    {
+        CurrentPage = _artistTrackPage;
+    }
+    
+    [RelayCommand]
+    private void NavigateToConfigurationPage()
+    {
+        CurrentPage = _configurationPage;
     }
 }

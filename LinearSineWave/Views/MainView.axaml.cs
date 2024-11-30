@@ -11,7 +11,7 @@ public partial class MainView : Window
         InitializeComponent();
     }
     
-    public void LeftNavbarClickHandler(object sender, RoutedEventArgs args)
+    /*public void LeftNavbarClickHandler(object sender, RoutedEventArgs args)
     {
         Button button = (Button)sender;
         String btn = String.Empty;
@@ -30,8 +30,6 @@ public partial class MainView : Window
             default:
                 break;
         }
-        
-        //message.Text = "Button clicked!";
-    }
+    }*/
 
 }

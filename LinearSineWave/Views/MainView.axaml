@@ -4,7 +4,6 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:materialIcons="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
-        xmlns:views="clr-namespace:LinearSineWave.Views"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="LinearSineWave.Views.MainView"
         x:DataType="vm:MainViewModel"
@@ -26,7 +25,7 @@
 					Classes="MainButtonClass"
 					ToolTip.Tip="Library Grid"
 					Name="ViewLibraryGrid"
-					Click="LeftNavbarClickHandler">
+					Command="{Binding NavigateToArtistTrackPageCommand}">
 					<materialIcons:MaterialIcon Kind="PlaylistMusicOutline" Height="50" Width="50" Foreground="#F1F1F1" />
 				</Button>
 				<Button 
@@ -34,8 +33,7 @@
 					Grid.Column="0"
 					Classes="MainButtonClass"
 					ToolTip.Tip="Refresh Library From Source"
-					Name="RefreshLibraryWithDatabase"
-					Click="LeftNavbarClickHandler">
+					Name="RefreshLibraryWithDatabase">
 					<materialIcons:MaterialIcon Kind="Refresh" Height="50" Width="50" Foreground="#F1F1F1" />
 				</Button>
 				<Button 
@@ -46,8 +44,7 @@
 					HorizontalAlignment="Center"
 					ToolTip.Tip="Configuration"
 					Name="Configuration"
-					Margin="0,0,0,70"
-					Click="LeftNavbarClickHandler">
+					Command="{Binding NavigateToConfigurationPageCommand}">
 					<materialIcons:MaterialIcon Kind="CogOutline" Height="50" Width="50" Foreground="#F1F1F1" />
 				</Button>
 			</Grid>
