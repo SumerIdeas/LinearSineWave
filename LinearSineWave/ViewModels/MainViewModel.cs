@@ -37,13 +37,13 @@ public partial class MainViewModel : ViewModelBase
 
 
     [RelayCommand]
-    private void NavigateToArtistTrackPage()
+    private void ShowArtistTrackPage()
     {
         CurrentPage = _artistTrackPage;
     }
     
     [RelayCommand]
-    private void NavigateToConfigurationPage()
+    private void ShowConfigurationPage()
     {
         CurrentPage = _configurationPage;
     }

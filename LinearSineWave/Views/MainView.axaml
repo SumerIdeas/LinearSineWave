@@ -25,7 +25,7 @@
 					Classes="MainButtonClass"
 					ToolTip.Tip="Library Grid"
 					Name="ViewLibraryGrid"
-					Command="{Binding NavigateToArtistTrackPageCommand}">
+					Command="{Binding ShowArtistTrackPageCommand}">
 					<materialIcons:MaterialIcon Kind="PlaylistMusicOutline" Height="50" Width="50" Foreground="#F1F1F1" />
 				</Button>
 				<Button 
@@ -44,14 +44,15 @@
 					HorizontalAlignment="Center"
 					ToolTip.Tip="Configuration"
 					Name="Configuration"
-					Command="{Binding NavigateToConfigurationPageCommand}">
+					Command="{Binding ShowConfigurationPageCommand}"
+					Margin="0,0,0,10">
 					<materialIcons:MaterialIcon Kind="CogOutline" Height="50" Width="50" Foreground="#F1F1F1" />
 				</Button>
 			</Grid>
 		</Panel>
 		
 		<Panel DockPanel.Dock="Bottom" Background="#333333">
-		<StackPanel Name="AudioControlPanel" FlowDirection="LeftToRight" Orientation="Horizontal" Margin="10,5,10,0">
+		<StackPanel Name="AudioControlPanel" FlowDirection="LeftToRight" Orientation="Horizontal" Margin="10,5,10,5">
 			<!--		Previous Track			-->
 			<Button
 				Classes="AudioButtonClass"

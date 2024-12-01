@@ -33,3 +33,15 @@ public class TrackModel : ObservableValidator
     public string? TrackComment { get; set; }
     public bool TrackHasBeenUpdated { get; set; } = false;
 }
+
+
+
+
+
+
+
+
+
+
+
+
