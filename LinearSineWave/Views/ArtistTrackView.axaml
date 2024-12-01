@@ -6,13 +6,17 @@
              xmlns:vm="clr-namespace:LinearSineWave.ViewModels"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:DataType="vm:ArtistTrackViewModel"
-             x:Class="LinearSineWave.Views.ArtistTrackView">
+             x:Class="LinearSineWave.Views.ArtistTrackView"
+             Margin="0"
+             Padding="0">
 	<Design.DataContext><vm:ArtistTrackViewModel /></Design.DataContext>
 	
 	<TabControl Name="MainTabControl"
 	            SelectedIndex="{Binding MainTabSelectedIndex}"
-	            SelectionChanged="ArtistTrackTabChangeHandler">
-		<TabItem Header="Artist / Track" FontSize="16" Foreground="#333333">
+	            SelectionChanged="ArtistTrackTabChangeHandler"
+	            Margin="0"
+	            Padding="0">
+		<TabItem Header="Artist / Track" FontSize="16" Foreground="#333333" Margin="0">
 			<StackPanel Orientation="Vertical">
 				<Border BorderThickness="1" BorderBrush="#CCCCCC">
 				<Panel Name="ArtistTrackToolbar" FlowDirection="LeftToRight">
@@ -26,7 +30,7 @@
 				</Panel>
 				</Border>
 				
-				<!--<TextBlock Margin="5" Foreground="#333333">This is tab 1 content</TextBlock>-->
+				<ScrollViewer VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Auto">
 					<DataGrid ItemsSource="{Binding Tracks}"
 					          CanUserReorderColumns="True"
 					          CanUserResizeColumns="True"
@@ -36,7 +40,7 @@
 					          GridLinesVisibility="All"
 					          BorderThickness="1"
 					          BorderBrush="Gray"
-					          VerticalScrollBarVisibility="Visible">
+					          Foreground="#333333">
 						<DataGrid.Columns>
 							<DataGridTextColumn Header="TrackIdx" IsVisible="False" Binding="{Binding TrackIdx}"/>
 							<DataGridTextColumn Header="TrackKey" IsVisible="False" Binding="{Binding TrackKey}" />
@@ -55,7 +59,7 @@
 							<DataGridTextColumn Header="Track Name" Binding="{Binding TrackName}" />
 						</DataGrid.Columns>
 					</DataGrid>
-
+				</ScrollViewer>
 				
 			</StackPanel>
 		</TabItem>

@@ -11,13 +11,6 @@ public partial class ArtistTrackViewModel : ViewModelBase
 
     public ArtistTrackViewModel()
     {
-        /*var people = new List<Person> 
-        {
-            new Person("Neil", "Armstrong"),
-            new Person("Buzz", "Lightyear"),
-            new Person("James", "Kirk")
-        };*/
-
         List<TrackModel> tracks = new List<TrackModel>();
         
         for (int i = 0; i < 50; i++)
