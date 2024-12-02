@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:materialIcons="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
              xmlns:vm="clr-namespace:LinearSineWave.ViewModels"
+             xmlns:models="clr-namespace:LinearSineWave.Models"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:DataType="vm:ArtistTrackViewModel"
              x:Class="LinearSineWave.Views.ArtistTrackView"
@@ -16,13 +17,12 @@
 	            SelectionChanged="ArtistTrackTabChangeHandler"
 	            Margin="0"
 	            Padding="0">
-		<TabItem Header="Artist / Track" FontSize="16" Foreground="#333333" Margin="0">
+		<TabItem Header="Artist / Track" FontSize="16" Foreground="#333333" Margin="0" >
 			<StackPanel Orientation="Vertical">
 				<Border BorderThickness="1" BorderBrush="#CCCCCC">
 				<Panel Name="ArtistTrackToolbar" FlowDirection="LeftToRight">
 					<Button
 						Classes="ToolbarButtonClass"
-						VerticalAlignment="Top"
 						Name="SyncGridWithDatabase"
 						ToolTip.Tip="Sync Grid With Database">
 						<materialIcons:MaterialIcon Kind="Sync" Height="32" Width="32" />
@@ -30,36 +30,73 @@
 				</Panel>
 				</Border>
 				
-				<ScrollViewer VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Auto">
-					<DataGrid ItemsSource="{Binding Tracks}"
-					          CanUserReorderColumns="True"
-					          CanUserResizeColumns="True"
-					          CanUserSortColumns="False"
-					          AutoGenerateColumns="True"
-					          IsReadOnly="True" 
-					          GridLinesVisibility="All"
-					          BorderThickness="1"
-					          BorderBrush="Gray"
-					          Foreground="#333333">
-						<DataGrid.Columns>
-							<DataGridTextColumn Header="TrackIdx" IsVisible="False" Binding="{Binding TrackIdx}"/>
-							<DataGridTextColumn Header="TrackKey" IsVisible="False" Binding="{Binding TrackKey}" />
-							<DataGridTextColumn Header="LibraryGuid" IsVisible="False" Binding="{Binding LibraryGuid}" />
-							<DataGridTextColumn Header="TrackPath" IsVisible="False" Binding="{Binding TrackPath}" />
-							<DataGridTextColumn Header="TrackExtension" IsVisible="False" Binding="{Binding TrackExtension}" />
-							<DataGridTextColumn Header="TrackComment" IsVisible="False" Binding="{Binding TrackComment}" />
-							<DataGridTextColumn Header="TrackHasBeenUpdated" IsVisible="False" Binding="{Binding TrackHasBeenUpdated}" />
-							<DataGridTextColumn Header="GenreKey" IsVisible="False" Binding="{Binding GenreKey}" />
-							<DataGridTextColumn Header="Track Title" Binding="{Binding TrackTitle}" />
-							<DataGridTextColumn Header="Artist" Binding="{Binding TrackArtist}" />
-							<DataGridTextColumn Header="Album" Binding="{Binding TrackAlbum}" />
-							<DataGridTextColumn Header="Year" Binding="{Binding TrackYear}" />
-							<DataGridTextColumn Header="Track Number" Binding="{Binding TrackNumber}" />
-							<DataGridTextColumn Header="Genre" Binding="{Binding TrackGenre}" />
-							<DataGridTextColumn Header="Track Name" Binding="{Binding TrackName}" />
-						</DataGrid.Columns>
-					</DataGrid>
-				</ScrollViewer>
+				<DataGrid
+				          CanUserReorderColumns="True"
+				          CanUserResizeColumns="True"
+				          CanUserSortColumns="False"
+				          AutoGenerateColumns="False"
+				          IsReadOnly="True" 
+				          GridLinesVisibility="All"
+				          BorderThickness="1"
+				          BorderBrush="Gray"
+				          Foreground="#333333"
+				          Margin="0,0,0,0"
+				          Padding="0,0,0,0"
+						  ItemsSource="{Binding Tracks}"
+				          RowHeight="">
+					<DataGrid.Columns>
+						<!--<DataGridTextColumn Header="TrackIdx" IsVisible="False" Binding="{Binding TrackIdx}"/>
+						<DataGridTextColumn Header="TrackKey" IsVisible="False" Binding="{Binding TrackKey}" />
+						<DataGridTextColumn Header="LibraryGuid" IsVisible="False" Binding="{Binding LibraryGuid}" />
+						<DataGridTextColumn Header="TrackPath" IsVisible="False" Binding="{Binding TrackPath}" />
+						<DataGridTextColumn Header="TrackExtension" IsVisible="False" Binding="{Binding TrackExtension}" />
+						<DataGridTextColumn Header="TrackComment" IsVisible="False" Binding="{Binding TrackComment}" />
+						<DataGridTextColumn Header="TrackHasBeenUpdated" IsVisible="False" Binding="{Binding TrackHasBeenUpdated}" />
+						<DataGridTextColumn Header="GenreKey" IsVisible="False" Binding="{Binding GenreKey}" />-->
+						<DataGridTemplateColumn Header="Track Name">
+							<DataGridTemplateColumn.CellTemplate>
+								<DataTemplate DataType="models:TrackModel">
+									<TextBlock Text="{Binding TrackName, StringFormat='{}{0}'}" Padding="0,0,0,0" Margin="0,0,0,0" />
+								</DataTemplate>
+							</DataGridTemplateColumn.CellTemplate>
+						</DataGridTemplateColumn>
+						<DataGridTemplateColumn Header="Track Artist">
+							<DataGridTemplateColumn.CellTemplate>
+								<DataTemplate DataType="models:TrackModel">
+									<TextBlock Text="{Binding TrackArtist, StringFormat='{}{0}'}" Padding="0,0,0,0" Margin="0,0,0,0" />
+								</DataTemplate>
+							</DataGridTemplateColumn.CellTemplate>
+						</DataGridTemplateColumn>
+						<DataGridTemplateColumn Header="Album">
+							<DataGridTemplateColumn.CellTemplate>
+								<DataTemplate DataType="models:TrackModel">
+									<TextBlock Text="{Binding TrackAlbum, StringFormat='{}{0}'}" Padding="0,0,0,0" Margin="0,0,0,0" />
+								</DataTemplate>
+							</DataGridTemplateColumn.CellTemplate>
+						</DataGridTemplateColumn>
+						<DataGridTemplateColumn Header="Year" CanUserResize="False">
+							<DataGridTemplateColumn.CellTemplate>
+								<DataTemplate DataType="models:TrackModel">
+									<TextBlock Text="{Binding TrackYear, StringFormat='{}{0}'}" Padding="0,0,0,0" Margin="0,0,0,0" />
+								</DataTemplate>
+							</DataGridTemplateColumn.CellTemplate>
+						</DataGridTemplateColumn>
+						<DataGridTemplateColumn Header="Track Number" CanUserResize="False">
+							<DataGridTemplateColumn.CellTemplate>
+								<DataTemplate DataType="models:TrackModel">
+									<TextBlock Text="{Binding TrackNumber, StringFormat='{}{0}'}" Padding="0,0,0,0" Margin="0,0,0,0" />
+								</DataTemplate>
+							</DataGridTemplateColumn.CellTemplate>
+						</DataGridTemplateColumn>
+						<DataGridTemplateColumn Header="Genre">
+							<DataGridTemplateColumn.CellTemplate>
+								<DataTemplate DataType="models:TrackModel">
+									<TextBlock Text="{Binding TrackGenre, StringFormat='{}{0}'}" Padding="0,0,0,0" Margin="0,0,0,0" />
+								</DataTemplate>
+							</DataGridTemplateColumn.CellTemplate>
+						</DataGridTemplateColumn>
+					</DataGrid.Columns>
+				</DataGrid>
 				
 			</StackPanel>
 		</TabItem>

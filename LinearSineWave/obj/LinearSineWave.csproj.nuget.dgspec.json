@@ -88,6 +88,10 @@
             "Material.Icons.Avalonia": {
               "target": "Package",
               "version": "[2.1.10, )"
+            },
+            "Microsoft.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[9.0.0, )"
             }
           },
           "imports": [

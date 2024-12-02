@@ -2,21 +2,27 @@
 using System.Xml.XPath;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using LinearSineWave.Data;
+using LinearSineWave.Factories;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace LinearSineWave.ViewModels;
 
 public partial class MainViewModel : ViewModelBase
 {
     [ObservableProperty]
-    private ViewModelBase _currentPage;
-    
+    private PageViewModel _currentPage;
+    private readonly PageFactory _pageFactory;
     private readonly ArtistTrackViewModel _artistTrackPage = new();
-    private readonly ConfigurationViewModel _configurationPage = new();
-
-    public MainViewModel()
+    
+    public MainViewModel(PageFactory pageFactory)
     {
+        _pageFactory = pageFactory;
         CurrentPage = _artistTrackPage;
     }
+
+    public bool ArtistTrackIsActive => CurrentPage.PageName == ApplicationPages.ArtistTrack;
+    public bool ConfigurationIsActive => CurrentPage.PageName == ApplicationPages.Configuration;
     
     
     public string? CurrentTrackName { get; set; }
@@ -37,14 +43,8 @@ public partial class MainViewModel : ViewModelBase
 
 
     [RelayCommand]
-    private void ShowArtistTrackPage()
-    {
-        CurrentPage = _artistTrackPage;
-    }
+    private void ShowArtistTrackPage() => CurrentPage = _artistTrackPage;
     
     [RelayCommand]
-    private void ShowConfigurationPage()
-    {
-        CurrentPage = _configurationPage;
-    }
+    private void ShowConfigurationPage() => CurrentPage = _pageFactory.GetPageViewModel(ApplicationPages.Configuration);
 }

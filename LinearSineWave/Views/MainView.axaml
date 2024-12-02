@@ -10,7 +10,7 @@
         Icon="/Assets/avalonia-logo.ico"
         Title="LinearSineWave">
 
-    <Design.DataContext><vm:MainViewModel/></Design.DataContext>
+    <Design.DataContext><vm:MainViewModel /></Design.DataContext>
 
 	<Grid ColumnDefinitions="Auto, *" RowDefinitions="*, Auto">
 		<StackPanel Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Background="#333333">
@@ -47,7 +47,7 @@
 				<ContentControl Content="{Binding CurrentPage}"></ContentControl>
 			</Panel>
 		</Border>
-			
+
 		<Panel Grid.Column="1" Grid.Row="1" Background="{DynamicResource LeftNavigationBackground}">
 			<StackPanel Name="AudioControlPanel" FlowDirection="LeftToRight" Orientation="Horizontal" Margin="5,5,10,5">
 				<Button

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "op6a4fnErgI=",
+  "dgSpecHash": "GoXH4NSuCFo=",
   "success": true,
   "projectFilePath": "/home/dcrump/Documents/RiderProjects/LinearSineWave/LinearSineWave/LinearSineWave.csproj",
   "expectedPackageFiles": [
@@ -33,6 +33,8 @@
     "/home/dcrump/.nuget/packages/material.icons/2.1.10/material.icons.2.1.10.nupkg.sha512",
     "/home/dcrump/.nuget/packages/material.icons.avalonia/2.1.10/material.icons.avalonia.2.1.10.nupkg.sha512",
     "/home/dcrump/.nuget/packages/microcom.runtime/0.11.0/microcom.runtime.0.11.0.nupkg.sha512",
+    "/home/dcrump/.nuget/packages/microsoft.extensions.dependencyinjection/9.0.0/microsoft.extensions.dependencyinjection.9.0.0.nupkg.sha512",
+    "/home/dcrump/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/9.0.0/microsoft.extensions.dependencyinjection.abstractions.9.0.0.nupkg.sha512",
     "/home/dcrump/.nuget/packages/shimskiasharp/2.0.0.4/shimskiasharp.2.0.0.4.nupkg.sha512",
     "/home/dcrump/.nuget/packages/skiasharp/2.88.9/skiasharp.2.88.9.nupkg.sha512",
     "/home/dcrump/.nuget/packages/skiasharp.harfbuzz/2.88.8/skiasharp.harfbuzz.2.88.8.nupkg.sha512",

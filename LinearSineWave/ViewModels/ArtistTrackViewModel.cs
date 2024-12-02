@@ -1,16 +1,18 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using LinearSineWave.Models;
-
+using LinearSineWave.Data;
 namespace LinearSineWave.ViewModels;
 
-public partial class ArtistTrackViewModel : ViewModelBase
+public partial class ArtistTrackViewModel : PageViewModel
 {
     public int MainTabSelectedIndex { get; set; } = 0;
     public ObservableCollection<TrackModel> Tracks { get; }
 
     public ArtistTrackViewModel()
     {
+        PageName = ApplicationPages.ArtistTrack;
+        
         List<TrackModel> tracks = new List<TrackModel>();
         
         for (int i = 0; i < 50; i++)
