@@ -1,6 +1,6 @@
 ﻿namespace LinearSineWave.ViewModels;
 
-public partial class MainWindowViewModel : ViewModelBase
+public partial class MainViewModel : ViewModelBase
 {
 #pragma warning disable CA1822 // Mark members as static
     public string Greeting => "Welcome to Avalonia!";
