@@ -6,15 +6,125 @@
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="LinearSineWave.Views.MainView"
         x:DataType="vm:MainViewModel"
+        xmlns:icon="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
         Icon="/Assets/avalonia-logo.ico"
         Title="LinearSineWave">
 
-    <Design.DataContext>
-        <!-- This only sets the DataContext for the previewer in an IDE,
-             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
-        <vm:MainViewModel/>
-    </Design.DataContext>
+    <Design.DataContext><vm:MainViewModel/></Design.DataContext>
 
-    <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+	<Grid ColumnDefinitions="Auto, *" RowDefinitions="*, Auto">
+		<StackPanel Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Background="#333333">
+			<Button 
+				Classes="MainButtonClass"
+				ToolTip.Tip="Library Grid"
+				Name="ViewLibraryGrid">
+				<icon:MaterialIcon Kind="PlaylistMusicOutline" Height="50" Width="50" Foreground="#F1F1F1" />
+			</Button>
+			<Button 
+				Classes="MainButtonClass"
+				ToolTip.Tip="Refresh Library From Source"
+				Name="RefreshLibraryWithDatabase">
+				<icon:MaterialIcon Kind="Refresh" Height="50" Width="50" Foreground="#F1F1F1" />
+			</Button>
+			<Button 
+				Classes="MainButtonClass"
+				ToolTip.Tip="Configuration"
+				Name="Configuration">
+				<icon:MaterialIcon Kind="CogOutline" Height="50" Width="50" Foreground="#F1F1F1" />
+			</Button>
+			<Button 
+				Classes="MainButtonClass"
+				ToolTip.Tip="Exit Application"
+				Name="ExitClose">
+				<icon:MaterialIcon Kind="CloseCircleOutline" Height="50" Width="50" Foreground="#F1F1F1" />
+			</Button>
+		</StackPanel>
+		
+		<Border Grid.Row="0" Grid.Column="1" BorderThickness="2" Margin="0,0,0,3" BorderBrush="Orange">
+			<Panel Margin="0" Background="#F1F1F1">
+				<ContentControl Content="{Binding ArtistTrackPage}"></ContentControl>
+			</Panel>
+		</Border>
 
+		<Panel Grid.Column="1" Grid.Row="1" Background="{DynamicResource LeftNavigationBackground}">
+			<StackPanel Name="AudioControlPanel" FlowDirection="LeftToRight" Orientation="Horizontal" Margin="5,5,10,5">
+				<Button
+					Classes="AudioButtonClass"
+			        HorizontalAlignment="Left"
+			        ToolTip.Tip="Previous Track"
+			        Name="PreviousTrack">
+					<icon:MaterialIcon Kind="SkipPreviousOutline" Height="32" Width="32" />
+				</Button>
+				<Button
+					Classes="AudioButtonClass"
+					HorizontalAlignment="Left"
+					Name="RewindTrack"
+					ToolTip.Tip="Hold to Rewind">
+					<icon:MaterialIcon Kind="SkipBackwardOutline" Height="32" Width="32" />
+				</Button>
+				<Button
+					Classes="AudioButtonClass"
+					HorizontalAlignment="Left"
+					Name="PlayPauseTrack"
+					ToolTip.Tip="Play / Pause">
+					<icon:MaterialIcon Kind="PlayOutline" Height="48" Width="48" />
+				</Button>
+				<Button
+					Classes="AudioButtonClass"
+					HorizontalAlignment="Left"
+					Name="FastForwardTrack"
+					ToolTip.Tip="Hold to Forward">
+					<icon:MaterialIcon Kind="SkipForwardOutline" Height="32" Width="32" />
+				</Button>
+				<Button
+					Classes="AudioButtonClass"
+					HorizontalAlignment="Left"
+					Name="NextTrack"
+					ToolTip.Tip="Next Track">
+					<icon:MaterialIcon Kind="SkipNextOutline" Height="32" Width="32" />
+				</Button>
+				<Panel HorizontalAlignment="Left" Margin="5,0,10,0">
+					<Label HorizontalAlignment="Center" Content="Volume" Foreground="#F1F1F1" />
+					<Slider Width="100"
+							Margin="0,5,0,0"
+							VerticalAlignment="Center"
+							Minimum="0"
+							Maximum="100"
+							Value="25"
+							Name="VolumeSlider">
+					</Slider>
+				</Panel>
+				
+				<Image Height="48" Width="48"
+					   Stretch="UniformToFill"
+					   Source="/Assets/Images/Disc.png"/>
+				
+				<Panel HorizontalAlignment="Left" Margin="10,0,20,0">
+					<Label HorizontalAlignment="Left" Name="TrackProgressLabel" Content="{Binding TrackPositionLabel}" Foreground="#F1F1F1" />
+					<Label HorizontalAlignment="Right" Name="TrackLengthLabel" Content="{Binding TrackLengthLabel}" Foreground="#F1F1F1" />
+					<Slider Width="200"
+							Margin="0,5,0,0"
+							VerticalAlignment="Center"
+							Minimum="-1"
+							Maximum="{Binding TrackLength}"
+							Value="{Binding TrackPosition}"
+							Name="TrackProgressSlider">
+					</Slider>
+				</Panel>
+
+				<StackPanel FlowDirection="LeftToRight" Orientation="Vertical" Margin="0,0,10,0">
+					<TextBlock HorizontalAlignment="Right" Foreground="#F1F1F1">Track:</TextBlock>
+					<TextBlock HorizontalAlignment="Right" Foreground="#F1F1F1">Artist:</TextBlock>
+					<TextBlock HorizontalAlignment="Right" Foreground="#F1F1F1">Album:</TextBlock>
+				</StackPanel>
+				
+				<StackPanel FlowDirection="LeftToRight" Orientation="Vertical">
+					<TextBlock HorizontalAlignment="Left" Foreground="#F1F1F1" Name="TrackNameLabel" Text="{Binding CurrentTrackName}">[track]</TextBlock>
+					<TextBlock HorizontalAlignment="Left" Foreground="#F1F1F1" Name="TrackArtistLabel" Text="{Binding CurrentTrackArtist}">[artist]</TextBlock>
+					<TextBlock HorizontalAlignment="Left" Foreground="#F1F1F1" Name="TrackAlbumLabel" Text="{Binding CurrentTrackAlbum}">[album]</TextBlock>
+				</StackPanel>
+			</StackPanel>
+		</Panel>
+	</Grid>    
+    
 </Window>

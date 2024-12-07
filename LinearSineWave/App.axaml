@@ -2,8 +2,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              x:Class="LinearSineWave.App"
              xmlns:local="using:LinearSineWave"
-             RequestedThemeVariant="Default">
-             <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
+             RequestedThemeVariant="Default"
+             xmlns:icon="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia">
 
     <Application.DataTemplates>
         <local:ViewLocator/>
@@ -11,5 +11,15 @@
   
     <Application.Styles>
         <FluentTheme />
+        <icon:MaterialIconStyles />
+        <StyleInclude Source="Styles/AppStyle.axaml"></StyleInclude>
+        <StyleInclude Source="avares://Avalonia.Controls.DataGrid/Themes/Fluent.xaml" />        
     </Application.Styles>
+    
+    <Application.Resources>
+        <FontFamily x:Key="SourceSans">/Assets/Fonts/SourceSans3-Regular.ttf:Source Sans 3</FontFamily>
+        <FontFamily x:Key="SourceSansSemiBold">/Assets/Fonts/SourceSans3-SemiBold.ttf:Source Sans 3</FontFamily>
+        <FontFamily x:Key="SourceSansBold">/Assets/Fonts/SourceSans3-Bold.ttf:Source Sans 3</FontFamily>
+        <FontFamily x:Key="SourceSansMedium">/Assets/Fonts/SourceSans3-Media.ttf:Source Sans 3</FontFamily>
+    </Application.Resources>
 </Application>

@@ -1,0 +1,75 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Design.PreviewWith>
+        <Border Padding="20">
+            <Button Classes="ToolbarButtonClass">
+                Testing New Font
+            </Button>
+        </Border>
+    </Design.PreviewWith>
+
+    <Style Selector="Window">
+        <Setter Property="FontFamily" Value="{DynamicResource SourceSans}" />
+    </Style>
+    
+    <Styles.Resources>
+        <SolidColorBrush x:Key="LeftNavigationBackground">#333333</SolidColorBrush>
+        <SolidColorBrush x:Key="MainButtonBackground">#404040</SolidColorBrush>
+        <SolidColorBrush x:Key="MainButtonForeground">#E6E6E6</SolidColorBrush>
+        <Brush x:Key="MainButtonBorderColor">#808080</Brush>
+        <SolidColorBrush x:Key="MainButtonBackgroundOver">#4D4D4D</SolidColorBrush>
+        <SolidColorBrush x:Key="MainButtonForegroundOver">#E6E6E6</SolidColorBrush>
+        <Brush x:Key="MainButtonBorderColorOver">#808080</Brush>
+    </Styles.Resources>
+    
+    <Style Selector="Button.MainButtonClass">
+        <Setter Property="Margin" Value="10,10,10,0"></Setter>
+        <Setter Property="Padding" Value="0,0,0,0"></Setter>
+        <Setter Property="BorderThickness" Value="1"></Setter>
+        <Setter Property="Background" Value="{DynamicResource MainButtonBackground}"></Setter>
+        <Setter Property="Foreground" Value="{DynamicResource MainButtonForeground}"></Setter>
+        <Setter Property="BorderBrush" Value="{DynamicResource MainButtonBorderColor}"></Setter>
+    </Style>
+    <Style Selector="Button.MainButtonClass:pointerover /template/ ContentPresenter">
+        <Setter Property="Background" Value="{DynamicResource MainButtonBackgroundOver}" />
+        <Setter Property="Foreground" Value="{DynamicResource MainButtonForegroundOver}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource MainButtonBorderColorOver}" />
+    </Style>
+    
+    <Style Selector="Button.AudioButtonClass">
+        <Setter Property="Margin" Value="5,5,5,5"></Setter>
+        <Setter Property="Padding" Value="0,0,0,0"></Setter>
+        <Setter Property="BorderThickness" Value="1"></Setter>
+        <Setter Property="Background" Value="#333333"></Setter>
+        <Setter Property="Foreground" Value="#F1F1F1"></Setter>
+        <Setter Property="BorderBrush" Value="#b5c4e3"></Setter>
+    </Style>
+    <Style Selector="Button.AudioButtonClass:pointerover /template/ ContentPresenter">
+        <Setter Property="Background" Value="#DAE2F1" />
+        <Setter Property="Foreground" Value="#333333" />
+        <Setter Property="BorderBrush" Value="#577bc1" />
+    </Style>
+    
+    <Style Selector="Button.ToolbarButtonClass">
+        <Setter Property="Margin" Value="5,5,5,5"></Setter>
+        <Setter Property="Padding" Value="0,0,0,0"></Setter>
+        <Setter Property="BorderThickness" Value="1"></Setter>
+        <Setter Property="Background" Value="#EEEEEE"></Setter>
+        <Setter Property="Foreground" Value="#333333"></Setter>
+        <Setter Property="BorderBrush" Value="#808080"></Setter>
+    </Style>
+    <Style Selector="Button.ToolbarButtonClass:pointerover /template/ ContentPresenter">
+        <Setter Property="Background" Value="#DAE2F1" />
+        <Setter Property="Foreground" Value="#333333" />
+        <Setter Property="BorderBrush" Value="#808080" />
+    </Style>
+    
+    <Style Selector="Button /template/ ContentPresenter">
+        <Setter Property="Transitions">
+            <Transitions>
+                <BrushTransition Property="Background" Duration="0:0:0.1"></BrushTransition>
+                <TransformOperationsTransition Property="RenderTransform" Duration="0:0:0.1"></TransformOperationsTransition>
+            </Transitions>
+        </Setter>
+    </Style>
+</Styles>
