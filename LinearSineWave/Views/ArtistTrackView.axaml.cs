@@ -10,4 +10,11 @@ public partial class ArtistTrackView : UserControl
     {
         InitializeComponent();
     }
+    
+    public void ArtistTrackTabChangeHandler(object sender, SelectionChangedEventArgs args)
+    {
+        string tst = string.Empty;
+        TabControl tc = (TabControl)sender;
+        int se = tc.SelectedIndex;
+    }
 }

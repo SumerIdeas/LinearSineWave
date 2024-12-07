@@ -7,11 +7,124 @@
              xmlns:icon="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="LinearSineWave.Views.ArtistTrackView"
+             x:DataType="vm:ArtistTrackViewModel"
              Margin="0"
              Padding="0">
+	<Design.DataContext><vm:ArtistTrackViewModel /></Design.DataContext>
     
-    
-    Artist Track View
+	<TabControl Name="MainTabControl"
+	            SelectedIndex="{Binding MainTabSelectedIndex}"
+	            SelectionChanged="ArtistTrackTabChangeHandler"
+	            Margin="0"
+	            Padding="0">
+		<TabItem Header="Artist / Track" FontSize="16" Foreground="#333333" Margin="0" >
+			<StackPanel Orientation="Vertical">
+				<Border BorderThickness="1" BorderBrush="#CCCCCC">
+				<Panel Name="ArtistTrackToolbar" FlowDirection="LeftToRight">
+					<Button
+						Classes="ToolbarButtonClass"
+						Name="SyncGridWithDatabase"
+						ToolTip.Tip="Sync Grid With Database">
+						<icon:MaterialIcon Kind="Sync" Height="32" Width="32" />
+					</Button>
+				</Panel>
+				</Border>
+				
+				<DataGrid
+				          CanUserReorderColumns="True"
+				          CanUserResizeColumns="True"
+				          CanUserSortColumns="False"
+				          AutoGenerateColumns="False"
+				          IsReadOnly="True" 
+				          GridLinesVisibility="All"
+				          Foreground="#333333"
+				          Margin="0,0,0,0"
+				          Padding="0,0,0,0"
+						  ItemsSource="{Binding Tracks}"
+				          RowHeight="20"
+				          VerticalScrollBarVisibility="Visible"
+				          HorizontalScrollBarVisibility="Visible">
+					<DataGrid.Columns>
+						<DataGridTemplateColumn Header="Track Name" MinWidth="250">
+							<DataGridTemplateColumn.CellTemplate>
+								<DataTemplate DataType="audioModel:TrackModel">
+									<TextBlock FontSize="12" VerticalAlignment="Center" Text="{Binding TrackName, StringFormat='{}{0}'}" Padding="5,0,5,0" Margin="0,0,0,0" />
+								</DataTemplate>
+							</DataGridTemplateColumn.CellTemplate>
+						</DataGridTemplateColumn>
+						<DataGridTemplateColumn Header="Track Artist" MinWidth="250">
+							<DataGridTemplateColumn.CellTemplate>
+								<DataTemplate DataType="audioModel:TrackModel">
+									<TextBlock FontSize="12" VerticalAlignment="Center" Text="{Binding TrackArtist, StringFormat='{}{0}'}" Padding="5,0,5,0" Margin="0,0,0,0" />
+								</DataTemplate>
+							</DataGridTemplateColumn.CellTemplate>
+						</DataGridTemplateColumn>
+						<DataGridTemplateColumn Header="Album" MinWidth="150">
+							<DataGridTemplateColumn.CellTemplate>
+								<DataTemplate DataType="audioModel:TrackModel">
+									<TextBlock FontSize="12" VerticalAlignment="Center" Text="{Binding TrackAlbum, StringFormat='{}{0}'}" Padding="5,0,5,0" Margin="0,0,0,0" />
+								</DataTemplate>
+							</DataGridTemplateColumn.CellTemplate>
+						</DataGridTemplateColumn>
+						<DataGridTemplateColumn Header="Year" CanUserResize="False">
+							<DataGridTemplateColumn.CellTemplate>
+								<DataTemplate DataType="audioModel:TrackModel">
+									<TextBlock FontSize="12" VerticalAlignment="Center" Text="{Binding TrackYear, StringFormat='{}{0}'}" Padding="5,0,5,0" Margin="0,0,0,0" />
+								</DataTemplate>
+							</DataGridTemplateColumn.CellTemplate>
+						</DataGridTemplateColumn>
+						<DataGridTemplateColumn Header="Track Number" CanUserResize="False">
+							<DataGridTemplateColumn.CellTemplate>
+								<DataTemplate DataType="audioModel:TrackModel">
+									<TextBlock FontSize="12" VerticalAlignment="Center" Text="{Binding TrackNumber, StringFormat='{}{0}'}" Padding="5,0,5,0" Margin="0,0,0,0" />
+								</DataTemplate>
+							</DataGridTemplateColumn.CellTemplate>
+						</DataGridTemplateColumn>
+						<DataGridTemplateColumn Header="Genre">
+							<DataGridTemplateColumn.CellTemplate>
+								<DataTemplate DataType="audioModel:TrackModel">
+									<TextBlock FontSize="12" VerticalAlignment="Center" Text="{Binding TrackGenre, StringFormat='{}{0}'}" Padding="5,0,5,0" Margin="0,0,0,0" />
+								</DataTemplate>
+							</DataGridTemplateColumn.CellTemplate>
+						</DataGridTemplateColumn>
+					</DataGrid.Columns>
+				</DataGrid>
+				
+			</StackPanel>
+		</TabItem>
+		<TabItem Header="Playlist" FontSize="16" Foreground="#333333">
+			<StackPanel Orientation="Vertical">
+				<Border BorderThickness="1" BorderBrush="#CCCCCC">
+					<Panel Name="PlaylistToolbar" FlowDirection="LeftToRight">
+						<Button
+							Classes="ToolbarButtonClass"
+							VerticalAlignment="Top"
+							Name="TestA"
+							ToolTip.Tip="Sync Grid With Database">
+							<icon:MaterialIcon Kind="Sync" Height="32" Width="32" />
+						</Button>
+					</Panel>
+				</Border>
+				<TextBlock Margin="5">This is tab 2 content</TextBlock>
+			</StackPanel>
+		</TabItem>
+		<TabItem Header="Current Queue" FontSize="16" Foreground="#333333">
+			<StackPanel Orientation="Vertical">
+				<Border BorderThickness="1" BorderBrush="#CCCCCC">
+					<Panel Name="CurrentQueueToolbar" FlowDirection="LeftToRight">
+						<Button
+							Classes="ToolbarButtonClass"
+							VerticalAlignment="Top"
+							Name="TestB"
+							ToolTip.Tip="Sync Grid With Database">
+							<icon:MaterialIcon Kind="Sync" Height="32" Width="32" />
+						</Button>
+					</Panel>
+				</Border>
+				<TextBlock Margin="5">This is tab 3 content</TextBlock>
+			</StackPanel>
+		</TabItem>
+	</TabControl>
     
     
 </UserControl>

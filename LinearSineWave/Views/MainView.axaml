@@ -17,7 +17,9 @@
 			<Button 
 				Classes="MainButtonClass"
 				ToolTip.Tip="Library Grid"
-				Name="ViewLibraryGrid">
+				Name="ViewLibraryGrid"
+				Command="{Binding SwitchCurrentPage}"
+				CommandParameter="ArtistTrack">
 				<icon:MaterialIcon Kind="PlaylistMusicOutline" Height="50" Width="50" Foreground="#F1F1F1" />
 			</Button>
 			<Button 
@@ -29,7 +31,9 @@
 			<Button 
 				Classes="MainButtonClass"
 				ToolTip.Tip="Configuration"
-				Name="Configuration">
+				Name="Configuration"
+				Command="{Binding SwitchCurrentPage}"
+				CommandParameter="Configuration">
 				<icon:MaterialIcon Kind="CogOutline" Height="50" Width="50" Foreground="#F1F1F1" />
 			</Button>
 			<Button 
@@ -42,7 +46,7 @@
 		
 		<Border Grid.Row="0" Grid.Column="1" BorderThickness="2" Margin="0,0,0,3" BorderBrush="Orange">
 			<Panel Margin="0" Background="#F1F1F1">
-				<ContentControl Content="{Binding ArtistTrackPage}"></ContentControl>
+				<ContentControl Content="{Binding CurrentPageView}"></ContentControl>
 			</Panel>
 		</Border>
 

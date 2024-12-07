@@ -1,6 +1,6 @@
 namespace LinearSineWave.ViewModels;
 
-public class ConfigurationViewModel
+public class ConfigurationViewModel : ViewModelBase
 {
     
 }
