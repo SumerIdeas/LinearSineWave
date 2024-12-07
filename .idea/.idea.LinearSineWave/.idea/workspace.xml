@@ -7,13 +7,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a43667cd-e460-486a-987c-6ecd57120662" name="Changes" comment="Solution Reorganization">
-      <change afterPath="$PROJECT_DIR$/LinearSineWave/Styles/AppStyle.axaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.LinearSineWave/.idea/avalonia.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LinearSineWave/.idea/avalonia.xml" afterDir="false" />
+    <list default="true" id="a43667cd-e460-486a-987c-6ecd57120662" name="Changes" comment="Project Reorganization">
+      <change afterPath="$PROJECT_DIR$/LinearSineWave/Services/ServiceHandler.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.LinearSineWave/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LinearSineWave/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LinearSineWave/App.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/LinearSineWave/App.axaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LinearSineWave/ViewModels/MainViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LinearSineWave/ViewModels/MainViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LinearSineWave/Views/MainView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/LinearSineWave/Views/MainView.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LinearSineWave/App.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LinearSineWave/App.axaml.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,7 +94,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1733527986694</updated>
-      <workItem from="1733527989007" duration="3635000" />
+      <workItem from="1733527989007" duration="5459000" />
     </task>
     <task id="LOCAL-00001" summary="Project Reorganization">
       <option name="closed" value="true" />
@@ -139,7 +136,15 @@
       <option name="project" value="LOCAL" />
       <updated>1733529845054</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Project Reorganization">
+      <option name="closed" value="true" />
+      <created>1733539237451</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1733539237451</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -151,8 +156,8 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="Update" />
     <MESSAGE value="Updated Packages" />
-    <MESSAGE value="Project Reorganization" />
     <MESSAGE value="Solution Reorganization" />
-    <option name="LAST_COMMIT_MESSAGE" value="Solution Reorganization" />
+    <MESSAGE value="Project Reorganization" />
+    <option name="LAST_COMMIT_MESSAGE" value="Project Reorganization" />
   </component>
 </project>
