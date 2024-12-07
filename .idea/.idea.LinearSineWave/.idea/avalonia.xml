@@ -3,6 +3,8 @@
   <component name="AvaloniaProject">
     <option name="projectPerEditor">
       <map>
+        <entry key="LinearSineWave/Views/ArtistTrackView.axaml" value="LinearSineWave/LinearSineWave.csproj" />
+        <entry key="LinearSineWave/Views/ConfigurationView.axaml" value="LinearSineWave/LinearSineWave.csproj" />
         <entry key="LinearSineWave/Views/MainWindow.axaml" value="LinearSineWave/LinearSineWave.csproj" />
       </map>
     </option>
