@@ -8,13 +8,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a43667cd-e460-486a-987c-6ecd57120662" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/LinearSineWave/appsettings.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.LinearSineWave/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LinearSineWave/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LinearSineWave/ViewModels/ArtistTrackViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LinearSineWave/ViewModels/ArtistTrackViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LinearSineWave/ViewModels/ConfigurationViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LinearSineWave/ViewModels/ConfigurationViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LinearSineWave/ViewModels/MainViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LinearSineWave/ViewModels/MainViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LinearSineWave/Views/ArtistTrackView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/LinearSineWave/Views/ArtistTrackView.axaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LinearSineWave/Views/ArtistTrackView.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LinearSineWave/Views/ArtistTrackView.axaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LinearSineWave/Views/MainView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/LinearSineWave/Views/MainView.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LinearSineWave/LinearSineWave.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/LinearSineWave/LinearSineWave.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LinearSineWave/Services/ServiceHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LinearSineWave/Services/ServiceHandler.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

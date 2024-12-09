@@ -7,6 +7,7 @@ namespace LinearSineWave.ViewModels;
 public partial class MainViewModel : ViewModelBase
 {
     private readonly ArtistTrackViewModel _artistTrackViewModel = new();
+    private readonly ConfigurationViewModel _configurationViewModel = new();
 
     [ObservableProperty] private ViewModelBase _currentPageView;
 
@@ -38,7 +39,7 @@ public partial class MainViewModel : ViewModelBase
         CurrentPageView = pageName switch
         {
             "ArtistTrack" => _artistTrackViewModel,
-            "Configuration" => new ConfigurationViewModel(),
+            "Configuration" => _configurationViewModel,
             _ => throw new ArgumentException($"unknown page name {pageName}")
         };
     }
