@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using LinearSineWave.Models.Audio;
 using LiteDB;
 
@@ -63,8 +64,11 @@ public class LswDatabase
             if (!Path.Exists(databasePath))
                 Directory.CreateDirectory(databasePath);
 
-            _applicationDatabase = new LiteDatabase("Database/ApplicationDatabase.db");
-            _trackDatabase = new LiteDatabase("Database/TrackDatabase.db");
+            string applicationDatabasePath = "Database" + Path.DirectorySeparatorChar + Settings.ApplicationDatabaseName;
+            string trackDatabasePath = "Database" + Path.DirectorySeparatorChar + Settings.TrackDatabaseName;
+            
+            _applicationDatabase = new LiteDatabase(applicationDatabasePath);
+            _trackDatabase = new LiteDatabase(trackDatabasePath);
         }
         catch(Exception ex) {
             _lastError = ex;
@@ -88,9 +92,9 @@ public class LswDatabase
     // ---------------------------------------
     //      Insert Track
     // ---------------------------------------
-    internal bool AddTrack(TrackModel track) {
+    public async Task<bool> AddTrack(TrackModel track) {
         try {
-            _trackCollection.Insert(track);
+            await Task.Run(() => _trackCollection.Insert(track));
             return true;
         }
         catch (Exception ex) {
@@ -99,50 +103,69 @@ public class LswDatabase
         }
     }
 
-    internal List<TrackModel>? GetTrackListByName(string trackName) {
+    // Some tracks from different bands or albums may have duplicate names. This will list all of them
+    public async Task<List<TrackModel>>? GetTrackListByName(string trackName) {
+        List<TrackModel>? trackList = new List<TrackModel>();
+        
         try {
-            return _trackDatabase.GetCollection<TrackModel>("track").Find(x => x.TrackName == trackName).ToList();
+            trackList = await Task.Run(() => _trackDatabase
+                                        .GetCollection<TrackModel>("track")
+                                        .Find(x => x.TrackName == trackName)
+                                        .ToList());
+            return trackList;
         }
         catch (Exception ex) {
             _lastError = ex;
-            return null;
+            return trackList;
         }
     }
-    internal TrackModel? GetTrack(string trackName) {
+    public async Task<TrackModel>? GetTrack(string trackName) {
+        TrackModel? track = null;
+        
         try {
-            return _trackCollection.FindOne(x => x.TrackName == trackName);
+            track = await Task.Run(() => _trackCollection.FindOne(x => x.TrackName == trackName));
+            return track;
         }
         catch (Exception ex) {
             _lastError = ex;
-            return null;
+            return track;
         }
     }
-    internal TrackModel? GetTrack(string trackName, string trackAlbum) {
+    public async Task<TrackModel>? GetTrack(string trackName, string trackAlbum) {
+        TrackModel? track = null;
+        
         try {
-            return _trackCollection.FindOne(x => x.TrackName == trackName && x.TrackAlbum == trackAlbum);
+            track = await Task.Run(() => _trackCollection.FindOne(x => x.TrackName == trackName && x.TrackAlbum == trackAlbum));
+            return track;
         }
         catch (Exception ex) {
             _lastError = ex;
-            return null;
+            return track;
         }
     }
-    internal TrackModel? GetTrack(string trackName, string trackAlbum, string trackArtist) {
+    public async Task<TrackModel>? GetTrack(string trackName, string trackAlbum, string trackArtist) {
+        TrackModel? track = null;
+        
         try {
-            return _trackCollection.FindOne(x => x.TrackName == trackName && x.TrackAlbum == trackAlbum && x.TrackArtist == trackArtist);
+            track = await Task.Run(() => _trackCollection.FindOne(x => x.TrackName == trackName && x.TrackAlbum == trackAlbum && x.TrackArtist == trackArtist));
+            return track;
         }
         catch (Exception ex) {
             _lastError = ex;
-            return null;
+            return track;
         }
     }
     
-    internal List<TrackModel>? SearchTracks(TrackModel track) {
+    public async Task<List<TrackModel>>? SearchTracks(TrackModel track) {
+        List<TrackModel>? trackList = new List<TrackModel>();
+        
         try {
-            return _trackDatabase.GetCollection<TrackModel>("track").FindAll().ToList();
+            trackList = await Task.Run(() => _trackDatabase.GetCollection<TrackModel>("track").FindAll().ToList());
+            return trackList;
         }
         catch (Exception ex) {
             _lastError = ex;
-            return null;
+            return trackList;
         }
     }
     // ---------------------------------------

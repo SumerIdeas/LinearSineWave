@@ -27,7 +27,15 @@ sealed class Program
             var configuration =  new ConfigurationBuilder()
                 .AddJsonFile($"appsettings.json").Build();
             
-            string test = configuration["AppConfig:Setting1"];
+            string applicationName = configuration["Application:Name"];
+            string version = configuration["Application:Version"];
+            string ApplicationDatabaseName = configuration["ApplicationDatabaseName:Version"];
+            string TrackDatabaseName = configuration["TrackDatabaseName:Version"];
+            
+            Settings.ApplicationName = applicationName;
+            Settings.Version = version;
+            Settings.ApplicationDatabaseName = ApplicationDatabaseName;
+            Settings.TrackDatabaseName = TrackDatabaseName;
         }
         catch (Exception ex) {
             Exception _exception = ex;
@@ -36,3 +44,22 @@ sealed class Program
     
     
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
