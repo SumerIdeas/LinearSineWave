@@ -1,12 +1,13 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using LinearSineWave.Models.Audio;
 using LiteDB;
 
 namespace LinearSineWave.Data;
 
-public class LswDatabase : ILswDatabase
+public class LswDatabase
 {
     #region Variables
     // ------------------------------------------------
@@ -35,10 +36,8 @@ public class LswDatabase : ILswDatabase
     #endregion
     
     
-    internal LswDatabase()
-    {
-        try
-        {
+    internal LswDatabase() {
+        try {
             ConnectDatabase();
             RefreshCollections();
         }
@@ -51,31 +50,32 @@ public class LswDatabase : ILswDatabase
     #region Internal
     // ---------------------------------------
     //      Refresh Collections
-    public void ConnectDatabase()
-    {
-        try
-        {
+    public void ConnectDatabase() {
+        try {
             if (_applicationDatabase != null)
                 _applicationDatabase.Dispose();
             if (_trackDatabase != null)
                 _trackDatabase.Dispose();
 
-            _applicationDatabase = new LiteDatabase("ApplicationDatabase.db");
-            _trackDatabase = new LiteDatabase("TrackDatabase.db");
+            var path = System.Reflection.Assembly.GetExecutingAssembly().Location;
+            string databasePath = Path.GetDirectoryName(path) + Path.DirectorySeparatorChar + "Database";
+            
+            if (!Path.Exists(databasePath))
+                Directory.CreateDirectory(databasePath);
+
+            _applicationDatabase = new LiteDatabase("Database/ApplicationDatabase.db");
+            _trackDatabase = new LiteDatabase("Database/TrackDatabase.db");
         }
-        catch(Exception ex)
-        {
+        catch(Exception ex) {
             _lastError = ex;
         }
     }
 
-    public Exception GetLastException()
-    {
+    public Exception GetLastException() {
         return _lastError;
     }
     
-    public void RefreshCollections()
-    {
+    public void RefreshCollections() {
         _libraryCollection = ApplicationDatabase.GetCollection<LibraryModel>("library");
         _genreCollection = ApplicationDatabase.GetCollection<GenreModel>("genre");
         _tagCollection = ApplicationDatabase.GetCollection<TagModel>("tag");

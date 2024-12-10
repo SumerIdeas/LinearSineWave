@@ -1,5 +1,6 @@
 ﻿using Avalonia;
 using System;
+using Microsoft.Extensions.Configuration;
 
 namespace LinearSineWave;
 
@@ -9,13 +10,29 @@ sealed class Program
     // SynchronizationContext-reliant code before AppMain is called: things aren't initialized
     // yet and stuff might break.
     [STAThread]
-    public static void Main(string[] args) => BuildAvaloniaApp()
-        .StartWithClassicDesktopLifetime(args);
+    public static void Main(string[] args)
+    {
+        LoadConfiguration();
+        BuildAvaloniaApp().StartWithClassicDesktopLifetime(args);
+    }
 
-    // Avalonia configuration, don't remove; also used by visual designer.
-    public static AppBuilder BuildAvaloniaApp()
+    private static AppBuilder BuildAvaloniaApp()
         => AppBuilder.Configure<App>()
             .UsePlatformDetect()
             .WithInterFont()
             .LogToTrace();
+    
+    private static void LoadConfiguration() {
+        try {
+            var configuration =  new ConfigurationBuilder()
+                .AddJsonFile($"appsettings.json").Build();
+            
+            string test = configuration["AppConfig:Setting1"];
+        }
+        catch (Exception ex) {
+            Exception _exception = ex;
+        }
+    }
+    
+    
 }
