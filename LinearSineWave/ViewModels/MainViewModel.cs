@@ -52,4 +52,33 @@ public partial class MainViewModel : ViewModelBase
             _ => throw new ArgumentException($"unknown page name {pageName}")
         };
     }
+
+    
+    [RelayCommand]
+    public void CallSmb()
+    {
+        AudioFileHandler audioFileHandler = new();
+        audioFileHandler.ReadFilesAndFolders();
+    }
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

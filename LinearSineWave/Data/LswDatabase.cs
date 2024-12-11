@@ -79,12 +79,12 @@ public class LswDatabase
         return _lastError;
     }
     
-    public void RefreshCollections() {
-        _libraryCollection = ApplicationDatabase.GetCollection<LibraryModel>("library");
-        _genreCollection = ApplicationDatabase.GetCollection<GenreModel>("genre");
-        _tagCollection = ApplicationDatabase.GetCollection<TagModel>("tag");
-        _tagVersionCollection = ApplicationDatabase.GetCollection<TagVersionModel>("tagVersion");
-        _trackCollection = TrackDatabase.GetCollection<TrackModel>("track");
+    public async Task RefreshCollections() {
+        _libraryCollection = await Task.Run(() => ApplicationDatabase.GetCollection<LibraryModel>("library"));
+        _genreCollection = await Task.Run(() => ApplicationDatabase.GetCollection<GenreModel>("genre"));
+        _tagCollection = await Task.Run(() => ApplicationDatabase.GetCollection<TagModel>("tag"));
+        _tagVersionCollection = await Task.Run(() => ApplicationDatabase.GetCollection<TagVersionModel>("tagVersion"));
+        _trackCollection = await Task.Run(() => TrackDatabase.GetCollection<TrackModel>("track"));
     }
     #endregion
 
@@ -170,6 +170,5 @@ public class LswDatabase
     }
     // ---------------------------------------
     #endregion
-    
     
 }

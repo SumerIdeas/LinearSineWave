@@ -25,7 +25,8 @@
 			<Button 
 				Classes="MainButtonClass"
 				ToolTip.Tip="Refresh Library From Source"
-				Name="RefreshLibraryWithDatabase">
+				Name="RefreshLibraryWithDatabase"
+				Command="{Binding CallSmb}">
 				<icon:MaterialIcon Kind="Refresh" Height="50" Width="50" Foreground="#F1F1F1" />
 			</Button>
 			<Button 
