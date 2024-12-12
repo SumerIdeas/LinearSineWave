@@ -7,13 +7,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a43667cd-e460-486a-987c-6ecd57120662" name="Changes" comment="Implementing Async-Task">
-      <change afterPath="$PROJECT_DIR$/LinearSineWave/Data/AudioFileHandler.cs" afterDir="false" />
+    <list default="true" id="a43667cd-e460-486a-987c-6ecd57120662" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.LinearSineWave/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LinearSineWave/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LinearSineWave/Data/AudioFileHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LinearSineWave/Data/AudioFileHandler.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LinearSineWave/Data/LswDatabase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LinearSineWave/Data/LswDatabase.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LinearSineWave/LinearSineWave.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/LinearSineWave/LinearSineWave.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LinearSineWave/ViewModels/MainViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LinearSineWave/ViewModels/MainViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LinearSineWave/Views/MainView.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/LinearSineWave/Views/MainView.axaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,24 +48,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    ".NET Project.LinearSineWave.executor": "Run",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "/home/dcrump/Documents/RiderProjects",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "me.fornever.avaloniarider.idea.settings.AvaloniaProjectSettingsConfigurable",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;.NET Project.LinearSineWave.executor&quot;: &quot;Debug&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/dcrump/Documents/RiderProjects&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.C#&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="LinearSineWave" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
@@ -100,7 +97,13 @@
       <workItem from="1733527989007" duration="5688000" />
       <workItem from="1733582868191" duration="2277000" />
       <workItem from="1733752544024" duration="13588000" />
-      <workItem from="1733839127405" duration="19654000" />
+      <workItem from="1733839127405" duration="19825000" />
+      <workItem from="1733928059335" duration="1848000" />
+      <workItem from="1733936545326" duration="1527000" />
+      <workItem from="1733938171476" duration="1272000" />
+      <workItem from="1733943741956" duration="662000" />
+      <workItem from="1733968869352" duration="85000" />
+      <workItem from="1733971711303" duration="4280000" />
     </task>
     <task id="LOCAL-00001" summary="Project Reorganization">
       <option name="closed" value="true" />
@@ -182,7 +185,15 @@
       <option name="project" value="LOCAL" />
       <updated>1733849664072</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Started library reading functions">
+      <option name="closed" value="true" />
+      <created>1733890138102</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1733890138102</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -200,23 +211,24 @@
     <MESSAGE value="Removed DI for now" />
     <MESSAGE value="Implementing appsettings.json" />
     <MESSAGE value="Implementing Async-Task" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implementing Async-Task" />
+    <MESSAGE value="Started library reading functions" />
+    <option name="LAST_COMMIT_MESSAGE" value="Started library reading functions" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/LinearSineWave/Data/LswDatabase.cs</url>
-          <line>73</line>
-          <properties documentPath="$PROJECT_DIR$/LinearSineWave/Data/LswDatabase.cs" containingFunctionPresentation="Method 'ConnectDatabase'">
+          <url>file://$PROJECT_DIR$/LinearSineWave/Data/AudioFileHandler.cs</url>
+          <line>68</line>
+          <properties documentPath="$PROJECT_DIR$/LinearSineWave/Data/AudioFileHandler.cs" containingFunctionPresentation="Method 'ReadFilesAndFolders'">
             <startOffsets>
-              <option value="2511" />
+              <option value="2188" />
             </startOffsets>
             <endOffsets>
-              <option value="2527" />
+              <option value="2207" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="15" />
+          <option name="timeStamp" value="17" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

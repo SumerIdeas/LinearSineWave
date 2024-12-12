@@ -16,12 +16,12 @@ public class LswDatabase
     private LiteDatabase _applicationDatabase;
     private LiteDatabase _trackDatabase;
     
-    private ILiteCollection<LibraryModel> _libraryCollection = null!;
-    private ILiteCollection<GenreModel> _genreCollection = null!;
-    private ILiteCollection<TagModel> _tagCollection = null!;
-    private ILiteCollection<TagVersionModel> _tagVersionCollection = null!;
+    private ILiteCollection<LibraryModel> _libraryCollection;
+    private ILiteCollection<GenreModel> _genreCollection;
+    private ILiteCollection<TagModel> _tagCollection;
+    private ILiteCollection<TagVersionModel> _tagVersionCollection;
     
-    private ILiteCollection<TrackModel> _trackCollection = null!;
+    private ILiteCollection<TrackModel> _trackCollection;
 
     private Exception _lastError;
     // ------------------------------------------------
@@ -64,8 +64,8 @@ public class LswDatabase
             if (!Path.Exists(databasePath))
                 Directory.CreateDirectory(databasePath);
 
-            string applicationDatabasePath = "Database" + Path.DirectorySeparatorChar + Settings.ApplicationDatabaseName;
-            string trackDatabasePath = "Database" + Path.DirectorySeparatorChar + Settings.TrackDatabaseName;
+            string applicationDatabasePath = databasePath + Path.DirectorySeparatorChar + "ApplicationDatabase.db";
+            string trackDatabasePath = databasePath + Path.DirectorySeparatorChar + "TrackDatabase.db";
             
             _applicationDatabase = new LiteDatabase(applicationDatabasePath);
             _trackDatabase = new LiteDatabase(trackDatabasePath);
@@ -103,6 +103,17 @@ public class LswDatabase
         }
     }
 
+    public async Task<bool> AddTracks(List<TrackModel> track) {
+        try {
+            await Task.Run(() => _trackCollection.InsertBulk(track));
+            return true;
+        }
+        catch (Exception ex) {
+            _lastError = ex;
+            return false;
+        }
+    }
+    
     // Some tracks from different bands or albums may have duplicate names. This will list all of them
     public async Task<List<TrackModel>>? GetTrackListByName(string trackName) {
         List<TrackModel>? trackList = new List<TrackModel>();
