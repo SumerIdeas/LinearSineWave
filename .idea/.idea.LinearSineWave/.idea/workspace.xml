@@ -8,9 +8,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a43667cd-e460-486a-987c-6ecd57120662" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/LinearSineWave/ViewModels/LibraryParserViewModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LinearSineWave/Views/LibraryParserView.axaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LinearSineWave/Views/LibraryParserView.axaml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.LinearSineWave/.idea/avalonia.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LinearSineWave/.idea/avalonia.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.LinearSineWave/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LinearSineWave/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LinearSineWave/App.axaml" beforeDir="false" afterPath="$PROJECT_DIR$/LinearSineWave/App.axaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LinearSineWave/App.axaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LinearSineWave/App.axaml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LinearSineWave/Data/AudioFileHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LinearSineWave/Data/AudioFileHandler.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LinearSineWave/Data/LswDatabase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LinearSineWave/Data/LswDatabase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LinearSineWave/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/LinearSineWave/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LinearSineWave/Settings.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LinearSineWave/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/LinearSineWave/appsettings.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,7 +112,9 @@
       <workItem from="1733938171476" duration="1272000" />
       <workItem from="1733943741956" duration="662000" />
       <workItem from="1733968869352" duration="85000" />
-      <workItem from="1733971711303" duration="4280000" />
+      <workItem from="1733971711303" duration="6214000" />
+      <workItem from="1734019223414" duration="9196000" />
+      <workItem from="1734053144926" duration="3511000" />
     </task>
     <task id="LOCAL-00001" summary="Project Reorganization">
       <option name="closed" value="true" />
@@ -193,7 +204,15 @@
       <option name="project" value="LOCAL" />
       <updated>1733890138102</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Working on audio file handler">
+      <option name="closed" value="true" />
+      <created>1733978540131</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1733978540131</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -212,20 +231,21 @@
     <MESSAGE value="Implementing appsettings.json" />
     <MESSAGE value="Implementing Async-Task" />
     <MESSAGE value="Started library reading functions" />
-    <option name="LAST_COMMIT_MESSAGE" value="Started library reading functions" />
+    <MESSAGE value="Working on audio file handler" />
+    <option name="LAST_COMMIT_MESSAGE" value="Working on audio file handler" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/LinearSineWave/Data/AudioFileHandler.cs</url>
-          <line>68</line>
+          <line>67</line>
           <properties documentPath="$PROJECT_DIR$/LinearSineWave/Data/AudioFileHandler.cs" containingFunctionPresentation="Method 'ReadFilesAndFolders'">
             <startOffsets>
-              <option value="2188" />
+              <option value="2167" />
             </startOffsets>
             <endOffsets>
-              <option value="2207" />
+              <option value="2186" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="17" />

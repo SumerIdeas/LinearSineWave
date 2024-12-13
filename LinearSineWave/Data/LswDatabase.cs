@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Avalonia;
 using LinearSineWave.Models.Audio;
 using LiteDB;
 
@@ -15,6 +16,8 @@ public class LswDatabase
     //      Variables
     private LiteDatabase _applicationDatabase;
     private LiteDatabase _trackDatabase;
+    private string _applicationDatabasePath;
+    private string _trackDatabasePath;
     
     private ILiteCollection<LibraryModel> _libraryCollection;
     private ILiteCollection<GenreModel> _genreCollection;
@@ -24,14 +27,15 @@ public class LswDatabase
     private ILiteCollection<TrackModel> _trackCollection;
 
     private Exception _lastError;
+    private string _applicationDatabaseName;
+    private string _trackDatabaseName;
+    private string _databaseDirectory;
     // ------------------------------------------------
     #endregion
     
     #region Properties
     // ------------------------------------------------
     //      Properties
-    internal LiteDatabase ApplicationDatabase => _applicationDatabase;
-    internal LiteDatabase TrackDatabase => _trackDatabase;
     internal Exception LastError => _lastError;
     // ------------------------------------------------
     #endregion
@@ -39,6 +43,10 @@ public class LswDatabase
     
     internal LswDatabase() {
         try {
+            App app = (App)Application.Current;
+            _applicationDatabasePath= app.ApplicationDatabasePath;
+            _trackDatabasePath = app.TrackDatabasePath;
+            
             ConnectDatabase();
             RefreshCollections();
         }
@@ -53,22 +61,11 @@ public class LswDatabase
     //      Refresh Collections
     public void ConnectDatabase() {
         try {
-            if (_applicationDatabase != null)
-                _applicationDatabase.Dispose();
-            if (_trackDatabase != null)
-                _trackDatabase.Dispose();
-
-            var path = System.Reflection.Assembly.GetExecutingAssembly().Location;
-            string databasePath = Path.GetDirectoryName(path) + Path.DirectorySeparatorChar + "Database";
+            _applicationDatabase.Dispose();
+            _trackDatabase.Dispose();
             
-            if (!Path.Exists(databasePath))
-                Directory.CreateDirectory(databasePath);
-
-            string applicationDatabasePath = databasePath + Path.DirectorySeparatorChar + "ApplicationDatabase.db";
-            string trackDatabasePath = databasePath + Path.DirectorySeparatorChar + "TrackDatabase.db";
-            
-            _applicationDatabase = new LiteDatabase(applicationDatabasePath);
-            _trackDatabase = new LiteDatabase(trackDatabasePath);
+            _applicationDatabase = new LiteDatabase(_applicationDatabasePath);
+            _trackDatabase = new LiteDatabase(_trackDatabasePath);
         }
         catch(Exception ex) {
             _lastError = ex;
@@ -80,11 +77,11 @@ public class LswDatabase
     }
     
     public async Task RefreshCollections() {
-        _libraryCollection = await Task.Run(() => ApplicationDatabase.GetCollection<LibraryModel>("library"));
-        _genreCollection = await Task.Run(() => ApplicationDatabase.GetCollection<GenreModel>("genre"));
-        _tagCollection = await Task.Run(() => ApplicationDatabase.GetCollection<TagModel>("tag"));
-        _tagVersionCollection = await Task.Run(() => ApplicationDatabase.GetCollection<TagVersionModel>("tagVersion"));
-        _trackCollection = await Task.Run(() => TrackDatabase.GetCollection<TrackModel>("track"));
+        _libraryCollection = await Task.Run(() => _applicationDatabase.GetCollection<LibraryModel>("library"));
+        _genreCollection = await Task.Run(() => _applicationDatabase.GetCollection<GenreModel>("genre"));
+        _tagCollection = await Task.Run(() => _applicationDatabase.GetCollection<TagModel>("tag"));
+        _tagVersionCollection = await Task.Run(() => _applicationDatabase.GetCollection<TagVersionModel>("tagVersion"));
+        _trackCollection = await Task.Run(() => _trackDatabase.GetCollection<TrackModel>("track"));
     }
     #endregion
 
@@ -103,6 +100,8 @@ public class LswDatabase
         }
     }
 
+    // This is only used when a new database is detected.
+    //      After that an update/add needs to be used.
     public async Task<bool> AddTracks(List<TrackModel> track) {
         try {
             await Task.Run(() => _trackCollection.InsertBulk(track));

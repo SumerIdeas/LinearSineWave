@@ -3,7 +3,8 @@
              x:Class="LinearSineWave.App"
              xmlns:local="using:LinearSineWave"
              RequestedThemeVariant="Default"
-             xmlns:icon="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia">
+             xmlns:icon="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
+             xmlns:system="clr-namespace:System;assembly=System.Runtime">
 
     <Application.DataTemplates>
         <local:ViewLocator/>
@@ -23,3 +24,22 @@
         <FontFamily x:Key="SourceSansMedium">/Assets/Fonts/SourceSans3-Media.ttf:Source Sans 3</FontFamily>
     </Application.Resources>
 </Application>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using ATL;
-using ATL.AudioData;
 using LinearSineWave.Models.Audio;
 
 namespace LinearSineWave.Data;
