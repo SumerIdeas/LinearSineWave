@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using ATL;
+using Avalonia;
 using LinearSineWave.Models.Audio;
 
 namespace LinearSineWave.Data;
@@ -9,9 +11,11 @@ namespace LinearSineWave.Data;
 public class AudioFileHandler
 {
     private readonly LswDatabase _lswDatabase;
+    private App app;
     
     public AudioFileHandler()
     {
+        app = (App)Application.Current;
         _lswDatabase = new LswDatabase();    
     }
 
@@ -23,9 +27,13 @@ public class AudioFileHandler
         int cnt = 1;
 
         try {
-            string[] files = Directory.GetFiles(path, "*.mp3", SearchOption.AllDirectories);
+            string[] fileExt = app.AllowedAudioExtentions.Split(',');
 
-            foreach (string file in files) {
+            var fileList = Directory
+                            .EnumerateFiles(path, "*.*", SearchOption.AllDirectories)
+                            .Where(file => fileExt.Any(x => file.EndsWith(x, StringComparison.OrdinalIgnoreCase)));
+            
+            foreach (string file in fileList) {
                 Track currentTrack = new Track(file);
                 FileInfo fileInfo = new FileInfo(file);
                 

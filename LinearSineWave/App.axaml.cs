@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using System.Threading.Tasks;
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Data.Core.Plugins;
@@ -22,6 +23,7 @@ public partial class App : Application
     public string DatabaseDirectory { get; set; } = string.Empty;
     public string ApplicationDatabasePath { get; set; } = string.Empty;
     public string TrackDatabasePath { get; set; } = string.Empty;
+    public string AllowedAudioExtentions { get; set; } = string.Empty;
     
     public override void Initialize()
     {
@@ -30,14 +32,46 @@ public partial class App : Application
         AvaloniaXamlLoader.Load(this);
     }
 
-    public override void OnFrameworkInitializationCompleted() {
+    public override async void OnFrameworkInitializationCompleted() {
         BindingPlugins.DataValidators.RemoveAt(0);
         
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop) {
-            desktop.MainWindow = new MainView
-            {
-                DataContext = new MainViewModel(),
+            var loadingViewModel = new LoadingViewModel();
+            var loadingView = new LoadingView {
+                DataContext = loadingViewModel
             };
+            desktop.MainWindow = loadingView;
+            loadingView.Show();
+
+            try {
+                /*while (!loadingViewModel.HasLoaded || !loadingViewModel.CancellationToken.IsCancellationRequested)
+                {
+                    
+                }*/
+
+                await Task.Delay(4000);
+                
+                loadingView.Close();
+            }
+            catch (Exception ex) {
+                loadingView.Close();
+                return;
+            }
+            
+            if (loadingView.IsLoaded)
+                loadingView.Close();
+
+            var mainView = new MainView
+            {
+                DataContext = new MainViewModel()
+            };
+            desktop.MainWindow = mainView;
+            mainView.Show();
+            
+            /*desktop.MainWindow = new MainView {
+                DataContext = new MainViewModel(),
+            };*/
+
         }
 
         base.OnFrameworkInitializationCompleted();
@@ -54,6 +88,7 @@ public partial class App : Application
             ApplicationDatabaseName = _configuration["Application:ApplicationDatabaseName"] ?? "NOTFOUND";
             TrackDatabaseName = _configuration["Application:TrackDatabaseName"] ?? "NOTFOUND";
             DatabaseDirectory = _configuration["Application:DatabaseDirectory"] ?? "NOTFOUND";
+            AllowedAudioExtentions = _configuration["Audio:AllowedExtensions"] ?? "NOTFOUND";
         }
         catch (Exception ex) {
             Exception _exception = ex;

@@ -76,12 +76,14 @@ public class LswDatabase
         return _lastError;
     }
     
-    public async Task RefreshCollections() {
-        _libraryCollection = await Task.Run(() => _applicationDatabase.GetCollection<LibraryModel>("library"));
-        _genreCollection = await Task.Run(() => _applicationDatabase.GetCollection<GenreModel>("genre"));
-        _tagCollection = await Task.Run(() => _applicationDatabase.GetCollection<TagModel>("tag"));
-        _tagVersionCollection = await Task.Run(() => _applicationDatabase.GetCollection<TagVersionModel>("tagVersion"));
-        _trackCollection = await Task.Run(() => _trackDatabase.GetCollection<TrackModel>("track"));
+    public void RefreshCollections() {
+        _libraryCollection = _applicationDatabase.GetCollection<LibraryModel>("library");
+        _genreCollection = _applicationDatabase.GetCollection<GenreModel>("genre");
+        _tagCollection = _applicationDatabase.GetCollection<TagModel>("tag");
+        _tagVersionCollection = _applicationDatabase.GetCollection<TagVersionModel>("tagVersion");
+        _trackCollection = _trackDatabase.GetCollection<TrackModel>("track");
+        
+        string test = string.Empty;
     }
     #endregion
 
@@ -104,7 +106,10 @@ public class LswDatabase
     //      After that an update/add needs to be used.
     public async Task<bool> AddTracks(List<TrackModel> track) {
         try {
-            await Task.Run(() => _trackCollection.InsertBulk(track));
+            var trackDatabase = new LiteDatabase(_trackDatabasePath);
+            var tracks = trackDatabase.GetCollection<TrackModel>("track");
+            await Task.Run(() => tracks.InsertBulk(track));
+            //await Task.Run(() => _trackCollection.InsertBulk(track));
             return true;
         }
         catch (Exception ex) {
@@ -165,7 +170,6 @@ public class LswDatabase
             return track;
         }
     }
-    
     public async Task<List<TrackModel>>? SearchTracks(TrackModel track) {
         List<TrackModel>? trackList = new List<TrackModel>();
         
