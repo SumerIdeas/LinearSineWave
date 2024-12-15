@@ -3,12 +3,34 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:vm="clr-namespace:LinearSineWave.ViewModels"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        mc:Ignorable="d"
         x:Class="LinearSineWave.Views.LoadingView"
         xmlns:icon="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
         x:DataType="vm:LoadingViewModel"
+        WindowStartupLocation="CenterScreen"
+        SystemDecorations="None"
+        Width="600"
+        Height="400"
         Title="LoadingView">
 
-        Im Loading
+        <Border BorderBrush="#333333" BorderThickness="2">
+                <Grid ColumnDefinitions="*" RowDefinitions="Auto, *, Auto">
+                        <Border Grid.Column="0" Grid.Row="0" BorderBrush="#333333" BorderThickness="0,0,0,2" Margin="0,0,0,5">
+                                <TextBlock Padding="10,10,10,10" Background="#404040" Foreground="#F1F1F1">Loading Application ...</TextBlock>
+                        </Border>
+                        <TextBox
+                                IsReadOnly="True"
+                                Grid.Column="0"
+                                Grid.Row="1"
+                                Background="#F1F1F1"
+                                Margin="5,0,5,0"
+                                TextWrapping="Wrap"
+                                Foreground="#333333"
+                                Text="{Binding StatusMessage}"
+                                Classes="RemoveHover">
+                        </TextBox>
+                        <Button Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" Margin="0,10,0,10" Command="{Binding Cancel}">Cancel Loading ...</Button>
+                </Grid>
+        </Border>
         
 </Window>

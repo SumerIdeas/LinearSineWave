@@ -8,6 +8,7 @@
         x:DataType="vm:MainViewModel"
         xmlns:icon="clr-namespace:Material.Icons.Avalonia;assembly=Material.Icons.Avalonia"
         Icon="/Assets/avalonia-logo.ico"
+        WindowStartupLocation="CenterScreen"
         Title="LinearSineWave">
 
     <Design.DataContext><vm:MainViewModel/></Design.DataContext>

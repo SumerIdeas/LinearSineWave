@@ -32,6 +32,8 @@ public partial class App : Application
         AvaloniaXamlLoader.Load(this);
     }
 
+
+
     public override async void OnFrameworkInitializationCompleted() {
         BindingPlugins.DataValidators.RemoveAt(0);
         
@@ -44,34 +46,21 @@ public partial class App : Application
             loadingView.Show();
 
             try {
-                /*while (!loadingViewModel.HasLoaded || !loadingViewModel.CancellationToken.IsCancellationRequested)
-                {
-                    
-                }*/
-
-                await Task.Delay(4000);
-                
-                loadingView.Close();
+                await loadingViewModel.StartLoading();
             }
             catch (Exception ex) {
+                Exception _ex = ex;
                 loadingView.Close();
                 return;
             }
             
-            if (loadingView.IsLoaded)
-                loadingView.Close();
-
-            var mainView = new MainView
-            {
-                DataContext = new MainViewModel()
+            var mainViewModel = new MainViewModel();
+            var mainView = new MainView() {
+                DataContext = mainViewModel
             };
             desktop.MainWindow = mainView;
             mainView.Show();
-            
-            /*desktop.MainWindow = new MainView {
-                DataContext = new MainViewModel(),
-            };*/
-
+            loadingView.Close();
         }
 
         base.OnFrameworkInitializationCompleted();
