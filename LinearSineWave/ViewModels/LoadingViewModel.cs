@@ -1,8 +1,10 @@
+using System;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using LinearSineWave.Data;
 
 namespace LinearSineWave.ViewModels;
 
@@ -15,17 +17,23 @@ public partial class LoadingViewModel : ViewModelBase
     
     [ObservableProperty]
     private string _statusMessage = string.Empty;
+    
+    private LswDatabase _lswDatabase;
 
-    public LoadingViewModel()
-    {
-
+    public LoadingViewModel() {
+        try {
+            _lswDatabase = new LswDatabase();
+        }
+        catch (Exception ex) {
+            Exception _ex = ex;
+        }
     }
 
     public async Task StartLoading()
     {
         StatusMessageText.AppendLine("Starting Application...");
         StatusMessage = StatusMessageText.ToString();
-        await Task.Delay(2000);
+        await Task.Delay(30000);
         StatusMessageText.AppendLine("Next 1");
         StatusMessage = StatusMessageText.ToString();
         await Task.Delay(2000);

@@ -4,12 +4,14 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Avalonia;
+using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using LinearSineWave.Models.Audio;
 using LiteDB;
 
 namespace LinearSineWave.Data;
 
-public class LswDatabase
+public partial class LswDatabase : ObservableObject
 {
     #region Variables
     // ------------------------------------------------
@@ -37,18 +39,18 @@ public class LswDatabase
     // ------------------------------------------------
     //      Properties
     internal Exception LastError => _lastError;
+
+    [ObservableProperty]
+    private string _currentMessage;  
     // ------------------------------------------------
     #endregion
     
     
-    internal LswDatabase() {
+    public LswDatabase() {
         try {
             App app = (App)Application.Current;
             _applicationDatabasePath= app.ApplicationDatabasePath;
             _trackDatabasePath = app.TrackDatabasePath;
-            
-            ConnectDatabase();
-            RefreshCollections();
         }
         catch (Exception ex)
         {
@@ -56,6 +58,30 @@ public class LswDatabase
         }
     }
 
+    // ----------------------------------------
+    //      Validate Database
+    public bool InitializeDatabase() {
+        bool rtn = false;
+
+        try {
+            ConnectDatabase();
+            RefreshCollections();
+
+            _libraryCollection = _applicationDatabase.GetCollection<LibraryModel>("library");
+
+            if (_libraryCollection.Count() < 1)
+            {
+                
+            }
+        }
+        catch (Exception ex) {
+            _lastError = ex;
+        }
+        
+        return rtn;
+    }
+    // ----------------------------------------
+    
     #region Internal
     // ---------------------------------------
     //      Refresh Collections
@@ -82,8 +108,6 @@ public class LswDatabase
         _tagCollection = _applicationDatabase.GetCollection<TagModel>("tag");
         _tagVersionCollection = _applicationDatabase.GetCollection<TagVersionModel>("tagVersion");
         _trackCollection = _trackDatabase.GetCollection<TrackModel>("track");
-        
-        string test = string.Empty;
     }
     #endregion
 

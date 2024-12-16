@@ -16,11 +16,21 @@
         <StyleInclude Source="Styles/AppStyle.axaml"></StyleInclude>
         <StyleInclude Source="avares://Avalonia.Controls.DataGrid/Themes/Fluent.xaml" />
         
-        <Style Selector="TextBox.RemoveHover:pointerover">  
-            <Setter Property="Background" Value="red"/>  
-        </Style>  
-        <Style Selector="TextBox.RemoveHover:focused">  
-            <Setter Property="Background" Value="Red"/>  
+        <!--<Style Selector="TextBox.RemoveHover:pointerover">
+            <Setter Property="Background" Value="Aqua"></Setter>
+        </Style>-->
+
+        <Style Selector="TextBox.RemoveHover:pointerover /template/ Border#PART_BorderElement">
+            <Setter Property="Background">
+                <SolidColorBrush Color="#F1F1F1"/>
+            </Setter>
+            <Setter Property="BorderBrush" Value="orange"></Setter>
+        </Style>
+        <Style Selector="TextBox.RemoveHover:focus /template/ Border#PART_BorderElement">
+            <Setter Property="Background">
+                <SolidColorBrush Color="#F1F1F1"/>
+            </Setter>
+            <Setter Property="BorderBrush" Value="orange"></Setter>
         </Style>
     </Application.Styles>
     
